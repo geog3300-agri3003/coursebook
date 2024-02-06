@@ -1,0 +1,64 @@
+site_name: GEOG3300 and AGRI3003 
+repo_url: http://test.com
+repo_name: TEST
+
+theme:
+    name: material
+    features:
+      - content.code.copy
+      - navigation.tabs
+      - navigation.top
+    palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+# extra_css:
+#     - css/extra.css
+
+plugins:
+- search
+- mkdocs-jupyter:
+    include_source: True
+    ignore_h1_titles: True
+    allow_errors: false
+    ignore: ["conf.py"]
+    execute: False
+    execute_ignore:
+        ["notebooks/*.ipynb"]
+
+markdown_extensions:
+  - toc:
+      permalink: True
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra:
+  social:
+    - icon: "fontawesome/brands/github"
+      link: "https://github.com/"
+
+nav:
+  - Home: index.md
+  - Notebooks:
+      - notebooks/week-2_1.ipynb

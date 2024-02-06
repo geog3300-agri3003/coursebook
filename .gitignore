@@ -1,0 +1,14 @@
+# data
+data
+
+# notebook development
+nb_dev
+.ipynb_checkpoints
+
+# Python
+__pycache__/
+*.py[cod]
+
+# MscOS
+.DS_Store
+__MACOSX
