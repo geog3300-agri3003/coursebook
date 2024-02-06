@@ -1,6 +1,6 @@
 site_name: GEOG3300 and AGRI3003 
-repo_url: http://test.com
-repo_name: TEST
+repo_url: http://geog3300-agri3003.github.io./coursebook
+repo_name: GEOG3300 and AGRI3003
 
 theme:
     name: material
@@ -11,15 +11,15 @@ theme:
     palette:
     # Palette toggle for light mode
     - scheme: default
-      primary: custom
-      accent: custom
+      primary: blue
+      accent: blue
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     # Palette toggle for dark mode
     - scheme: slate
-      primary: custom
-      accent: custom
+      primary: blue
+      accent: cblue
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
