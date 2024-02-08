@@ -12,3 +12,6 @@ __pycache__/
 # MscOS
 .DS_Store
 __MACOSX
+
+# MkDocs documentation
+site*/
