@@ -1593,11 +1593,13 @@ if "data_lab-3_2" not in os.listdir(os.getcwd()):
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="k">if</span> <span class="s1">'google.colab'</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">()):</span>
+    <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">xarray</span><span class="p">[</span><span class="n">complete</span><span class="p">]</span>
     <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rioxarray</span>
     <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">mapclassify</span>
     <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rasterio</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2">if 'google.colab' in str(get_ipython()):
+    !pip install xarray[complete]
     !pip install rioxarray
     !pip install mapclassify
     !pip install rasterio</div>
@@ -2629,10 +2631,10 @@ pprint.pprint(elev_geojson_2)</div>
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Save the elevation GeoDataFrame to a GeoJSON file</span>
-<span class="n">elev_gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"week-2"</span><span class="p">,</span> <span class="s2">"week-2-bf66-elevation.geojson"</span><span class="p">),</span> <span class="n">driver</span><span class="o">=</span><span class="s2">"GeoJSON"</span><span class="p">)</span>
+<span class="n">elev_gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"data_lab-3_2"</span><span class="p">,</span> <span class="s2">"week-3-bf66-elevation.geojson"</span><span class="p">),</span> <span class="n">driver</span><span class="o">=</span><span class="s2">"GeoJSON"</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-20"># Save the elevation GeoDataFrame to a GeoJSON file
-elev_gdf.to_file(os.path.join(os.getcwd(), "week-2", "week-2-bf66-elevation.geojson"), driver="GeoJSON")</div>
+elev_gdf.to_file(os.path.join(os.getcwd(), "data_lab-3_2", "week-3-bf66-elevation.geojson"), driver="GeoJSON")</div>
 </div>
 </div>
 </div>

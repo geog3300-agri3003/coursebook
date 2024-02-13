@@ -1535,11 +1535,13 @@ if "data_lab-5" not in os.listdir(os.getcwd()):
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="k">if</span> <span class="s1">'google.colab'</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">()):</span>
+    <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">xarray</span><span class="p">[</span><span class="n">complete</span><span class="p">]</span>
     <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rioxarray</span>
     <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">mapclassify</span>
     <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rasterio</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2">if 'google.colab' in str(get_ipython()):
+    !pip install xarray[complete]
     !pip install rioxarray
     !pip install mapclassify
     !pip install rasterio</div>
