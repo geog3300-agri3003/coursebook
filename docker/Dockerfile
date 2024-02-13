@@ -40,6 +40,11 @@ RUN mamba install --quiet --yes \
     'planetary-computer' \
     'stackstac' \
     'pystac-client' \
+    'fsspec' \
+    'zarr' \
+    'cfgrib' \
+    'adlfs' \
+    'gcsfs' \
     'rasterstats' && \
     mamba clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
