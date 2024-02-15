@@ -1279,7 +1279,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="k">if</span> <span class="s2">"data_lab-1_2"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()):</span>
     <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">'wget "https://github.com/geog3300-agri3003/lab-data/raw/main/data_lab-1_2.zip"'</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">'unzip "data_lab-1_2.zip"'</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s2">"data_lab-2_1"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()):</span>
+    <span class="k">if</span> <span class="s2">"data_lab-1_2"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Has a directory called data_lab-1_2 been downloaded and placed in your working directory? If not, try re-executing this code chunk"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Data download OK"</span><span class="p">)</span>
@@ -1290,7 +1290,7 @@ import subprocess
 if "data_lab-1_2" not in os.listdir(os.getcwd()):
     subprocess.run('wget "https://github.com/geog3300-agri3003/lab-data/raw/main/data_lab-1_2.zip"', shell=True, capture_output=True, text=True)
     subprocess.run('unzip "data_lab-1_2.zip"', shell=True, capture_output=True, text=True)
-    if "data_lab-2_1" not in os.listdir(os.getcwd()):
+    if "data_lab-1_2" not in os.listdir(os.getcwd()):
         print("Has a directory called data_lab-1_2 been downloaded and placed in your working directory? If not, try re-executing this code chunk")
     else:
         print("Data download OK")</div>

@@ -2305,9 +2305,13 @@ era5</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1">## ADD CODE HERE</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">cmip6_wa</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"data_lab-3_2"</span><span class="p">,</span> <span class="s2">"nuist_cmip6_wa_2100_tasmax.zarr"</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"zarr"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cmip6_wa</span><span class="p">)</span>
+<span class="n">cmip6_wa</span><span class="o">.</span><span class="n">tasmax</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s2">"2100-01-01T12:00:00"</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-15">## ADD CODE HERE</div>
+<div class="clipboard-copy-txt" id="cell-15">cmip6_wa = xr.open_dataset(os.path.join(os.getcwd(), "data_lab-3_2", "nuist_cmip6_wa_2100_tasmax.zarr"), engine="zarr")
+print(cmip6_wa)
+cmip6_wa.tasmax.sel(time="2100-01-01T12:00:00").plot()</div>
 </div>
 </div>
 </div>
