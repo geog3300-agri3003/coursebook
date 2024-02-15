@@ -1,4 +1,4 @@
-FROM jmad1v07/geog3003-agri3003-2024
+FROM jmad1v07/geog3300-agri3003-2024
 
 # add geospaital and visualisation packages
 RUN pip install --quiet --no-cache-dir \
