@@ -441,17 +441,17 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#import-modules" class="md-nav__link">
     <span class="md-ellipsis">
       Import modules
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -474,15 +474,6 @@
   
     <nav class="md-nav" aria-label="Programs">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#import-modules_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Import modules
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#recap-quiz" class="md-nav__link">
@@ -726,17 +717,17 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#import-modules" class="md-nav__link">
     <span class="md-ellipsis">
       Import modules
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -759,15 +750,6 @@
   
     <nav class="md-nav" aria-label="Programs">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#import-modules_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Import modules
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#recap-quiz" class="md-nav__link">
@@ -1352,39 +1334,7 @@ if "data_lab-1_2" not in os.listdir(os.getcwd()):
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="import-modules">Import modules<a class="anchor-link" href="#import-modules">¶</a></h3><p>We'll introduce modules in detail later. But, for now, modules are collections of Python data structures and functions that we can <code>import</code> and use in our program. For example, pandas provides a <code>DataFrame</code> structure for storing tabular data and specific functions for working with tabular data. Plotly Express <code>plotly.express</code> provides functions for generating visualisations, importing Plotly Express means we don't need to write our own code to generate visualisations, we can just use existing functions which makes our lives easier.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=74ba9b15">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="a-first-python-program">A first Python program<a class="anchor-link" href="#a-first-python-program">¶</a></h2><p>Python is a programming language.</p>
-<h3 id="programs">Programs<a class="anchor-link" href="#programs">¶</a></h3><ul>
-<li>A program is a series of statements that are executed to complete a task</li>
-<li>Programs complete tasks by loading, transforming, and visualising data</li>
-<li>Data in programs can be of different types (numeric, text, boolean)</li>
-<li>Data can be combined into data structures to represent complex concepts and objects</li>
-<li>Functions operate on data to complete tasks</li>
-</ul>
-<details>
-<summary><b>Detailed notes on Python programs</b></summary>
-<p>As stated above, a program is a series of statements that are executed to complete a task. The ultimate goal of the program here is to generate visualisations of crop yield data recorded by harvesters. However, to achieve this the program consists of a series of sub-tasks that include reading the harvester data from CSV files on disk, inspecting the data, transforming it to a spatial data structure, and then rendering web maps and charts.</p>
-<p>Our program is loading, transforming, and visualising data. This means our program needs to be able store and represent different types and structures of data. If you look in the display of the <code>DataFrame</code> there are numeric, text, and date type data in the columns. Python provides tools for representing different types of data and structures for combining data to represent more complex concepts. For example, the <code>DataFrame</code> that is displayed is a data structure well suited to storing tabular data.</p>
-<p>In short, a Python program stores data as objects and then uses this data in a range functions that operate on this data to complete tasks.</p>
-</details>
-<p></p>
-<p>Here, a short Python program is demonstrated that:</p>
-<ol>
-<li>reads in crop yield data collected by a harvester in Western Australia's Wheatbelt</li>
-<li>converts the data into a spatial format</li>
-<li>visualises the data on a web map and charts</li>
-</ol>
-<h4 id="import-modules">Import modules<a class="anchor-link" href="#import-modules">¶</a></h4><p>We'll introduce modules in detail later. But, for now, modules are collections of Python tools that we can <code>import</code> and use in our program. For example, pandas provides a <code>DataFrame</code> structure for storing tabular data and specific functions for working with tabular data. Plotly Express <code>plotly.express</code> provides functions for generating visualisations, importing Plotly Express means we don't need to write our own code to generate visualisations, we can just use existing functions which makes our lives easier.</p>
+<h2 id="import-modules">Import modules<a class="anchor-link" href="#import-modules">¶</a></h2><p>We'll introduce modules in detail later. But, for now, modules are Python code that we can <code>import</code> and use in our program. For example, pandas provides a <code>DataFrame</code> structure for storing tabular data and specific functions for working with tabular data. Plotly Express <code>plotly.express</code> provides functions for generating visualisations, importing Plotly Express means we don't need to write our own code to generate visualisations, we can just use existing functions which makes our lives easier.</p>
 </div>
 </div>
 </div>
@@ -1434,6 +1384,37 @@ else:
     pio.renderers.default = "jupyterlab"</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=74ba9b15">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="a-first-python-program">A first Python program<a class="anchor-link" href="#a-first-python-program">¶</a></h2><p>Python is a programming language.</p>
+<h3 id="programs">Programs<a class="anchor-link" href="#programs">¶</a></h3><ul>
+<li>A program is a series of statements that are executed to complete a task</li>
+<li>Programs complete tasks by loading, transforming, and visualising data</li>
+<li>Data in programs can be of different types (numeric, text, boolean)</li>
+<li>Data can be combined into data structures to represent complex concepts and objects</li>
+<li>Functions operate on data to complete tasks</li>
+</ul>
+<details>
+<summary><b>Detailed notes on Python programs</b></summary>
+<p>As stated above, a program is a series of statements that are executed to complete a task. The ultimate goal of the program here is to generate visualisations of crop yield data recorded by harvesters. However, to achieve this the program consists of a series of sub-tasks that include reading the harvester data from CSV files on disk, inspecting the data, transforming it to a spatial data structure, and then rendering web maps.</p>
+<p>Our program is loading, transforming, and visualising data. This means our program needs to be able store and represent different types and structures of data. If you look in the display of the <code>DataFrame</code> there are numeric, text, and date type data in the columns. Python provides tools for representing different types of data and structures for combining data to represent more complex concepts. For example, the <code>DataFrame</code> that is displayed is a data structure well suited to storing tabular data.</p>
+<p>In short, a Python program stores data as objects and then uses this data in a range functions that operate on this data to complete tasks.</p>
+</details>
+<p></p>
+<p>Here, a short Python program is demonstrated that:</p>
+<ol>
+<li>reads in crop yield data collected by a harvester in Western Australia's Wheatbelt</li>
+<li>converts the data into a spatial format</li>
+<li>visualises the data on a web map</li>
+</ol>
 </div>
 </div>
 </div>
@@ -3470,7 +3451,7 @@ for i in x:
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Load the canola yield data from the harvester</span>
-<span class="n">harvester_data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"week-1"</span><span class="p">)</span>
+<span class="n">harvester_data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"data_lab-1_2"</span><span class="p">)</span>
 
 <span class="c1"># Get a list of canola yield data</span>
 <span class="n">harvester_data_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">harvester_data_path</span><span class="p">)</span>
@@ -3493,7 +3474,7 @@ for i in x:
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"We have a list of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span><span class="si">}</span><span class="s2"> Pandas DataFrames read from csv files"</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-46"># Load the canola yield data from the harvester
-harvester_data_path = os.path.join(os.getcwd(), "week-1")
+harvester_data_path = os.path.join(os.getcwd(), "data_lab-1_2")
 
 # Get a list of canola yield data
 harvester_data_files = os.listdir(harvester_data_path)
@@ -3940,7 +3921,7 @@ s = (1, 2, 3)
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Load the canola yield data from the harvester</span>
-<span class="n">harvester_data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"week-1"</span><span class="p">,</span> <span class="s2">"canola-yield-df-1.csv"</span><span class="p">)</span>
+<span class="n">harvester_data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"data_lab-1_2"</span><span class="p">,</span> <span class="s2">"canola-yield-df-1.csv"</span><span class="p">)</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">harvester_data_path</span><span class="p">)</span>
 
@@ -3948,7 +3929,7 @@ s = (1, 2, 3)
 <span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-53"># Load the canola yield data from the harvester
-harvester_data_path = os.path.join(os.getcwd(), "week-1", "canola-yield-df-1.csv")
+harvester_data_path = os.path.join(os.getcwd(), "data_lab-1_2", "canola-yield-df-1.csv")
 
 df = pd.read_csv(harvester_data_path)
 
@@ -4072,14 +4053,14 @@ df.values</div>
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Load the canola yield data from the harvester</span>
-<span class="n">harvester_data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"week-1"</span><span class="p">,</span> <span class="s2">"canola-yield-df-1.csv"</span><span class="p">)</span>
+<span class="n">harvester_data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"data_lab-1_2"</span><span class="p">,</span> <span class="s2">"canola-yield-df-1.csv"</span><span class="p">)</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">harvester_data_path</span><span class="p">)</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-56"># Load the canola yield data from the harvester
-harvester_data_path = os.path.join(os.getcwd(), "week-1", "canola-yield-df-1.csv")
+harvester_data_path = os.path.join(os.getcwd(), "data_lab-1_2", "canola-yield-df-1.csv")
 
 df = pd.read_csv(harvester_data_path)
 
@@ -4274,10 +4255,10 @@ df.info()</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">harvester_data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"week-1"</span><span class="p">,</span> <span class="s2">"canola-yield-df-1.csv"</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">harvester_data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"data_lab-1_2"</span><span class="p">,</span> <span class="s2">"canola-yield-df-1.csv"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">harvester_data_path</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-60">harvester_data_path = os.path.join(os.getcwd(), "data", "week-1", "canola-yield-df-1.csv")
+<div class="clipboard-copy-txt" id="cell-60">harvester_data_path = os.path.join(os.getcwd(), "data", "data_lab-1_2", "canola-yield-df-1.csv")
 print(harvester_data_path)</div>
 </div>
 </div>
