@@ -26,7 +26,7 @@ It will demonstrate these concepts by:
 
 ## Week 2
 
-These labs introduce data visualisation concepts, creating interactive visualisations of this data, generating different figures to explore a dataset's structure and relationships between variables, using colour to highlight features and patterns in the dataset, and generating maps from spatial data.
+These labs introduce data visualisation concepts, selecting different figures to explore a dataset's structure and relationships between variables, using colour to highlight features and patterns, and generating maps from spatial data. You will be working with crop yield data sampled by a header on a harvester from a field in the Western Australia and satellite images from the same field. 
 
 1) introduction to data visualisation and creating interactive figures.
 
