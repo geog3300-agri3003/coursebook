@@ -46,5 +46,18 @@ These labs introduce data visualisation concepts, selecting different figures to
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
+## Week 3 
 
+These labs will provide an introduction to file formats for tabular, vector, and raster data; best practice for reading and writing spatial and non-spatial data in Python programs; navigating directories and file systems; and, identifying suitable file formats for different tasks, use cases, contexts (e.g. big data / web environments). You will be working with a range of datasets including satellite images, climate reanalysis products, and crop yield data collected by a harvester from a field in Western Australia.
 
+1) data I/O and file formats.
+
+<a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-3_1.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
+2) geospatial data I/O.
+
+<a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-3_2.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
