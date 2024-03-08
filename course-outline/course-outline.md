@@ -40,5 +40,11 @@ These labs introduce data visualisation concepts, selecting different figures to
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
+3) practice exercises generating interactive visualisations using Plotly Express from an Our World in Data article: <a href="https://ourworldindata.org/yields-habitat-loss" target="_blank">*To protect the world’s wildlife we must improve crop yields – especially across Africa*</a>. 
+
+<a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-2_practice.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 
 
