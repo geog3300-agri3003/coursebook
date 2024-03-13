@@ -895,6 +895,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../week-4_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 4 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../week-5_1/" class="md-nav__link">
         
   
@@ -2267,12 +2288,13 @@ print(two_rows_cols)</div>
 <p>Specifically, while a NumPy <code>ndarray</code> stores just the raster values and has some properties such as the <code>shape</code> (number of elements along each axis) and <code>ndim</code> (the dimensions of the array) it does not explicitly store any geospatial, temporal, or other geographic metadata. <code>xarray</code> solves this problem by reading raster data into an <code>xarray.DataArray</code> object with:</p>
 <ul>
 <li><code>values</code>: the multidimensional array of raster values</li>
-<li><code>dims</code>: a list of names for the dimensions of the array (e.g. instead axis 0 describing the 0th (row) dimension of an array that dimension can have a descriptive label such as longitude)</li>
+<li><code>dims</code>: a list of names for the dimensions of the array (e.g. instead of axis 0 describing the 0th (row) dimension of an array, that dimension can have a descriptive label such as longitude)</li>
 <li><code>coordinates</code>: a <code>list</code> of array-like objects that describe the location of an array element along that dimension (e.g. a 1D array of longitude values describing the location on the Earth's surface for each row in the array)</li>
 <li><code>attrs</code>: a <code>dict</code> of metadata attributes describing the dataset</li>
 </ul>
 <p><code>xarray.DataArray</code> objects can be stored within a larger container called <code>xarray.Dataset</code>. An <code>xarray.Dataset</code> can store many <code>xarray.DataArray</code> objects that share <code>dims</code> and <code>coordinates</code>. This is useful if you have different arrays of different <code>Variables</code> that correspond to the same locations and time-periods (e.g. you could have a separate array for temperature and precipitation values organised within a single <code>xarray.Dataset</code>).</p>
-<p><img alt="Schematic of an xarray.Dataset (source: xarray Getting Started)" src="https://docs.xarray.dev/en/stable/_images/dataset-diagram.png"/></p>
+<p><img alt="" src="https://docs.xarray.dev/en/stable/_images/dataset-diagram.png"/></p>
+<p><em>Schematic of an xarray.Dataset (source: xarray Getting Started)</em></p>
 <p><strong>Why is <code>xarray</code> useful for geospatial data?</strong></p>
 <ul>
 <li>The <code>dims</code> and <code>coordinates</code> of an <code>xarray.DataArray</code> mean we can subset values from an array using latitude, longitude, time, or whatever a coordinate describes; we're not just restricted to subsetting values based on their index location within an array</li>
