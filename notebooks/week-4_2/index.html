@@ -1784,12 +1784,14 @@ if "data_lab-4_2" not in os.listdir(os.getcwd()):
     <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rioxarray</span>
     <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">mapclassify</span>
     <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rasterio</span>
+    <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rasterstats</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2">if 'google.colab' in str(get_ipython()):
     !pip install xarray[complete]
     !pip install rioxarray
     !pip install mapclassify
-    !pip install rasterio</div>
+    !pip install rasterio
+    !pip install rasterstats</div>
 </div>
 </div>
 </div>
@@ -2450,7 +2452,7 @@ for b in s2_bands:
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <details>
 <summary><b>answer</b></summary>
-<div class="highlight"><pre><span></span><span class="n">zstats</span> <span class="o">=</span> <span class="n">zonal_stats</span><span class="p">(</span><span class="n">gdf_field_ids</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">s2</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">crs</span><span class="p">),</span> <span class="n">band</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">labels_path</span><span class="p">,</span> <span class="n">stats</span><span class="o">=</span><span class="p">[</span><span class="s2">"majority"</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><span class="n">zstats</span> <span class="o">=</span> <span class="n">zonal_stats</span><span class="p">(</span><span class="n">gdf_field_ids</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">s2</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">crs</span><span class="p">),</span> <span class="n">labels_path</span><span class="p">,</span> <span class="n">band</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stats</span><span class="o">=</span><span class="p">[</span><span class="s2">"majority"</span><span class="p">])</span>
 <span class="n">labels_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">zstats</span><span class="p">)</span>
 </pre></div>
 </details>
