@@ -61,3 +61,19 @@ These labs will provide an introduction to file formats for tabular, vector, and
 <a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-3_2.ipynb" target="_blank">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
+
+## Week 4
+
+These labs focus on data wrangling and data transformation. You will implement a range of data transformation and geoprocessing operations including map algebra, spatial and non-spatial data subsetting, zonal statistics, and combining datasets. One lab will focus on raster data and build a data processing workflow to convert satellite images into flood maps following a tropical cyclone event in Fiji. The second lab will turn a satellite image into a vector-tabular dataset of field boundaries with a crop type label and field-average spectral reflectance values. This demonstrates how we can process satellite images into a format ready for machine learning model development. 
+
+1) data wrangling: raster data.
+
+<a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-4_1.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
+2) data wrangling: vector and tabular data
+
+<a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-4_2.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>

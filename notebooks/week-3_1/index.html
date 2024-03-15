@@ -931,6 +931,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../week-4_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 4 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../week-5_1/" class="md-nav__link">
         
   
@@ -2030,7 +2051,7 @@ print(data)</div>
 <p>A greyscale image file can store each pixel's colour as an 8-bit number or as a single byte. Black is represented as the number 0 (00000000), white is the number 255 (11111111), and shades of grey are intermediate numbers (00000001 to 11111110).</p>
 <p>If this greyscale image has 100x100 pixels (10,000 pixels), how many bytes of storage does this image require?</p>
 <p>$10000 bytes = 10000 pixels \cdot 1 byte$ as each pixel requires 1 byte of storage.</p>
-<p>Generally, a common text character such as upper and lower case letters (A-Z, a-z) and symbols (!, @, # etc.) requires a byte of storage. The CSV file we read above stores text characters. We can use the <code>os.stats()</code> function to inspect the stats of this file in storage. Let's pass the path to the <code>week-2-bf66-elevation.csv</code> file into the <code>os.stats()</code> function and see how many bytes are required to store this file.</p>
+<p>Generally, a common text character such as upper and lower case letters (A-Z, a-z) and symbols (!, @, # etc.) requires a byte of storage. The CSV file we read above stores text characters. We can use the <code>os.stats()</code> function to inspect the stats of this file in storage. Let's pass the path to the <code>week-3-bf66-elevation.csv</code> file into the <code>os.stats()</code> function and see how many bytes are required to store this file.</p>
 </div>
 </div>
 </div>
@@ -2053,11 +2074,11 @@ print(data)</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">elev_csv_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"data_lab-3_1"</span><span class="p">,</span> <span class="s2">"week-2-bf66-elevation.csv"</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">elev_csv_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"data_lab-3_1"</span><span class="p">,</span> <span class="s2">"week-3-bf66-elevation.csv"</span><span class="p">)</span>
 <span class="n">file_stats</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">elev_csv_path</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"File Size in Bytes is:"</span><span class="p">,</span>  <span class="n">file_stats</span><span class="o">.</span><span class="n">st_size</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">elev_csv_path = os.path.join(os.getcwd(), "data_lab-3_1", "week-2-bf66-elevation.csv")
+<div class="clipboard-copy-txt" id="cell-5">elev_csv_path = os.path.join(os.getcwd(), "data_lab-3_1", "week-3-bf66-elevation.csv")
 file_stats = os.stat(elev_csv_path)
 print("File Size in Bytes is:",  file_stats.st_size)</div>
 </div>
