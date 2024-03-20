@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../week-3_2/">
+        <link rel="prev" href="../week-3_practice/">
       
       
         <link rel="next" href="../week-4_2/">
@@ -548,6 +548,27 @@
   
   <span class="md-ellipsis">
     Week 3 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-3_practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 3 practice
   </span>
   
 
@@ -2459,7 +2480,7 @@ pre_s2 = rxr.open_rasterio(pre_tc_yasa_s2_path)</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>As discussed in previous labs, one of the nice features of <code>xarray.DataArray</code> objects is the ability to store information about the array data as dimensions with associated coordinates. Let's add a time dimension to store the date of image capture. This is important as our workflow involves change detection, so it's useful to keep track of which array corresponds to remote sensing images before the Tropical Cyclone event.</p>
+<p>As discussed in previous labs, one of the nice features of <code>xarray.DataArray</code> objects is the ability to store information about the array data as dimensions with associated coordinates. Let's add a time dimension to store the date of image capture. This is important as our workflow involves change detection, so it's useful to keep track of which array corresponds to remote sensing images before the tropical cyclone event.</p>
 </div>
 </div>
 </div>
@@ -2503,7 +2524,7 @@ pre_s2</div>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="map-algebra">Map algebra<a class="anchor-link" href="#map-algebra">¶</a></h2><p>Following <a href="https://geocompr.robinlovelace.net/index.html" target="_blank">Lovelace et al. (2022)</a>, we refer to map algebra as operations that transform raster pixel values via statistical or mathematical operations which can involve combining pixel values from different raster layers or using neighbouring raster values.</p>
 <p><a href="https://geocompr.robinlovelace.net/index.html" target="_blank">Lovelace et al. (2022)</a> outline four different types of map algebra operations:</p>
-<h3 id="local-operations">Local operations<a class="anchor-link" href="#local-operations">¶</a></h3><p><strong>Local</strong> map algebra operations operate on a pixel by pixel basis; the mathematical operation is applied independently to each pixel without reference to neighbouring pixel values. For example, addition, subtraction, multiplication, and logical operations can all be applied on a pixel by pixel basis.</p>
+<h3 id="local-operations">Local operations<a class="anchor-link" href="#local-operations">¶</a></h3><p>Local map algebra operations operate on a pixel by pixel basis; the mathematical operation is applied independently to each pixel without reference to neighbouring pixel values. For example, addition, subtraction, multiplication, and logical operations can all be applied on a pixel by pixel basis.</p>
 <p>Commonly used local operations when working with remote sensing data are computing spectral indices or masking out cloudy pixels. Spectral indices are pixel by pixel mathematical combinations of spectral reflectance in different wavelengths that are used to monitor vegetation or land surface conditions. Read <a href="https://doi.org/10.1038/s43017-022-00298-5" target="_blank">Zeng et al. (2022)</a> for a review of vegetation indices.</p>
 <p>The normalised difference vegetation index (NDVI) is used for tracking vegetation condition and representing the greenness of vegetation in a remote sensing image.</p>
 <p>The NDVI is computed as:</p>
@@ -2514,12 +2535,18 @@ pre_s2</div>
 <h3 id="global-operations">Global operations<a class="anchor-link" href="#global-operations">¶</a></h3><p>Global operations compute summary statistics for an entire raster layer. For example, we could have a raster layer indicating the presence of forest or non-forest areas. Counting the number of forest pixels and multiplying the count by the pixel area creates global summary statistic of the area of forest cover.</p>
 <h2 id="local-operations">Local operations<a class="anchor-link" href="#local-operations">¶</a></h2><p>As mentioned above, local operations perform mathematical operations on arrays on a pixel by pixel basis. To identify and compute the area of cropland flooded by Tropical Cyclone Yasa, we will need to perform a range of local operations:</p>
 <ol>
-<li>Convert a cloud probability raster into a binary cloud mask (i.e. set all pixels to <code>True</code> where cloud probability is less than 50%).</li>
-<li>Use the cloud mask to mask all cloudy pixels in Sentinel-2 multispectral satellite images (i.e. set all pixels to no data where the cloud mask is <code>False</code> - cloudy pixels).</li>
-<li>Compute a spectral index, the normalised difference water index (NDWI), using bands of green and near infrared reflectance to highlight water and moisture presence.</li>
-<li>Compute a difference image using the before and after Tropical Cyclone Yasa NDWI images to identify locations of change which are indicative of flood impacts.</li>
-<li>Threshold the difference image to identify pixels where a large change in NDWI occurred to represent an estimate of flood extent.</li>
-<li>Mask out non-cropland pixels using a land cover map to return an array of flooded cropland pixels.</li>
+<li><p>Convert a cloud probability raster into a binary cloud mask (i.e. set all pixels to <code>True</code> where cloud probability is less than 50%).</p>
+</li>
+<li><p>Use the cloud mask to mask all cloudy pixels in Sentinel-2 multispectral satellite images (i.e. set all pixels to no data where the cloud mask is <code>False</code> - cloudy pixels).</p>
+</li>
+<li><p>Compute a spectral index, the normalised difference water index (NDWI), using bands of green and near infrared reflectance to highlight water and moisture presence.</p>
+</li>
+<li><p>Compute a difference image using the before and after Tropical Cyclone Yasa NDWI images to identify locations of change which are indicative of flood impacts.</p>
+</li>
+<li><p>Threshold the difference image to identify pixels where a large change in NDWI occurred to represent an estimate of flood extent.</p>
+</li>
+<li><p>Mask out non-cropland pixels using a land cover map to return an array of flooded cropland pixels.</p>
+</li>
 </ol>
 <p>An example of a local operation is dividing each pixel value by 10000 (or multiply by 0.0001). This is necessary because the data is spectral reflectance so should have a value between 0 and 1 (i.e. the ratio of incoming light to reflected light off the land surface in a spectral band). If you look at the <a href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED#bands" target="_blank">information page for the Sentinel-2 remote sensing data</a> we are using here, you can see it has a scale factor of 0.0001. This means the reflectance data has been scaled by multiplying it by 10000 so it can be stored as integer type. We need to convert it back to reflectance units.</p>
 </div>
@@ -4335,7 +4362,7 @@ cropland</div>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../week-3_2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 3 2">
+          <a href="../week-3_practice/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 3 practice">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -4345,7 +4372,7 @@ cropland</div>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Week 3 2
+                Week 3 practice
               </div>
             </div>
           </a>
