@@ -1856,6 +1856,7 @@ if "data_lab-6" not in os.listdir(os.getcwd()):
     <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">planetary</span><span class="o">-</span><span class="n">computer</span>
     <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pystac</span><span class="o">-</span><span class="n">client</span>
     <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">odc</span><span class="o">-</span><span class="n">stac</span>
+    <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">adlfs</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2">if 'google.colab' in str(get_ipython()):
     !pip install xarray[complete]
@@ -1864,7 +1865,8 @@ if "data_lab-6" not in os.listdir(os.getcwd()):
     !pip install rasterio
     !pip install planetary-computer
     !pip install pystac-client
-    !pip install odc-stac</div>
+    !pip install odc-stac
+    !pip install adlfs</div>
 </div>
 </div>
 </div>
@@ -2642,7 +2644,7 @@ s2_xr</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>The Sentinel-2 data that we have downloaded is stored as a collection of <code>xarray.DataArray</code> objects within a larger container called <code>xarray.Dataset</code>. An <code>xarray.Dataset</code> can store many <code>xarray.DataArray</code> objects that share <code>dims</code> and <code>coordinates</code>. Here, we have different arrays of different <code>Variables</code> that correspond to the same locations and time-periods but different spectral bands.</p>
-<p>If we want to stack the arrays corresponding to spectral bands into a 3D-array stored within a <code>xarray.DataArray</code> object, we can use the <a href="" target="_blank"><code>to_dataarray()</code> method.</a></p>
+<p>If we want to stack the arrays corresponding to spectral bands into a 3D-array stored within a <code>xarray.DataArray</code> object, we can use the <code>to_array()</code> method.</p>
 </div>
 </div>
 </div>
@@ -2665,10 +2667,10 @@ s2_xr</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">s2_xr</span> <span class="o">=</span><span class="n">s2_xr</span><span class="o">.</span><span class="n">to_dataarray</span><span class="p">()</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">s2_xr</span> <span class="o">=</span><span class="n">s2_xr</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span>
 <span class="n">s2_xr</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-18">s2_xr =s2_xr.to_dataarray()
+<div class="clipboard-copy-txt" id="cell-18">s2_xr =s2_xr.to_array()
 s2_xr</div>
 </div>
 </div>
@@ -2783,7 +2785,7 @@ s2_xr</div>
 <summary><b>answer</b></summary>
 <div class="highlight"><pre><span></span><span class="n">s2_r_nir_xr</span> <span class="o">=</span> <span class="n">odc</span><span class="o">.</span><span class="n">stac</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
     <span class="p">[</span><span class="n">least_cloudy_s2</span><span class="p">],</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">"B04"</span><span class="p">,</span> <span class="s2">"B08"</span><span class="p">],</span> <span class="n">patch_url</span><span class="o">=</span><span class="n">pc</span><span class="o">.</span><span class="n">sign</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">bbox</span>
-<span class="p">)</span><span class="o">.</span><span class="n">to_dataarray</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span>
 <span class="n">s2_r_nir_xr</span>
 </pre></div>
 </details>
@@ -3023,12 +3025,12 @@ for key, asset in least_cloudy_item.assets.items():
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">landsat_xr</span> <span class="o">=</span> <span class="n">odc</span><span class="o">.</span><span class="n">stac</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
     <span class="p">[</span><span class="n">least_cloudy_item</span><span class="p">],</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"green"</span><span class="p">,</span> <span class="s2">"red"</span><span class="p">,</span> <span class="s2">"nir08"</span><span class="p">],</span> <span class="n">patch_url</span><span class="o">=</span><span class="n">pc</span><span class="o">.</span><span class="n">sign</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">bbox</span>
-<span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataarray</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span>
 <span class="n">landsat_xr</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-25">landsat_xr = odc.stac.load(
     [least_cloudy_item], bands=["blue", "green", "red", "nir08"], patch_url=pc.sign, bbox=bbox
-).isel(time=0).to_dataarray()
+).isel(time=0).to_array()
 landsat_xr</div>
 </div>
 </div>
@@ -3358,10 +3360,10 @@ print(len(landsat_items))</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">landsat_arr</span> <span class="o">=</span> <span class="n">landsat_xr</span><span class="o">.</span><span class="n">to_dataarray</span><span class="p">()</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">landsat_arr</span> <span class="o">=</span> <span class="n">landsat_xr</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span>
 <span class="n">landsat_arr</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-32">landsat_arr = landsat_xr.to_dataarray()
+<div class="clipboard-copy-txt" id="cell-32">landsat_arr = landsat_xr.to_array()
 landsat_arr</div>
 </div>
 </div>
