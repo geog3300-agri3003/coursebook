@@ -65,3 +65,10 @@ docker run -it --rm \
   -v "/Users/00094708/Dropbox (Personal)/work/uwa/teaching/advanced-spatial-analysis-3300":/home/jovyan/work \
   jmad1v07/geog3300-agri3003-2024:latest
 ```
+
+```
+docker run -it --rm \
+  -p 8889:8888 \
+  -v "/Users/00094708/Dropbox (Personal)/work/uwa/teaching/advanced-spatial-analysis-3300":/home/jovyan/work \
+  jmad1v07/geog3300-agri3003-2024:latest
+```

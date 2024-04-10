@@ -73,3 +73,20 @@ jupyter nbconvert --clear-output \
 jupyter nbconvert --clear-output \
   --to notebook --output="/workspaces/advanced-spatial-analysis-3300/docs/notebooks/week-5_2.ipynb" \
   "/workspaces/advanced-spatial-analysis-3300/nb_dev/week-5_2.ipynb"
+
+# Week 6
+# Lab 1
+jupyter nbconvert --clear-output \
+  --to notebook --output="/workspaces/advanced-spatial-analysis-3300/docs/notebooks/week-6_1.ipynb" \
+  "/workspaces/advanced-spatial-analysis-3300/nb_dev/week-6_1.ipynb"
+
+# Lab 2
+jupyter nbconvert --clear-output \
+  --to notebook --output="/workspaces/advanced-spatial-analysis-3300/docs/notebooks/week-6_2.ipynb" \
+  "/workspaces/advanced-spatial-analysis-3300/nb_dev/week-6_2.ipynb"
+
+# Week 7
+# Lab 1
+jupyter nbconvert --clear-output \
+  --to notebook --output="/workspaces/advanced-spatial-analysis-3300/docs/notebooks/week-7_1.ipynb" \
+  "/workspaces/advanced-spatial-analysis-3300/nb_dev/week-7_1.ipynb"
