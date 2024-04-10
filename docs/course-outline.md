@@ -89,3 +89,27 @@ These labs focus on data wrangling and data transformation. You will implement a
 <a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-4_practice.ipynb" target="_blank">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
+
+## Week 5
+
+An introduction to machine learning concepts and workflows, how to implement a machine learning workflow in Python, and considerations for machine learning with spatial data. You will implement two machine learning tasks. First, you will use the AgriFieldNet Competition Dataset&nbsp;<a target="_blank" href="https://mlhub.earth/data/ref_agrifieldnet_competition_v1" rel="noopener">(Radiant Earth Foundation and IDinsight, 2022)</a>&nbsp;dataset to develop a crop type classifier for fields in India using Sentinel-2 remote sensing data. Second, you will develop a model to predict maize crop yields in Uganda with Sentinel-2 remote sensing data using the replication data from&nbsp;<a target="_blank" href="https://web.stanford.edu/~mburke/papers/lobell_et_al_AJAE_2019.pdf" rel="noopener">Lobell et al.&nbsp;(2019)</a>
+
+1) crop type classification
+
+<a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-5_1.ipynb" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /> </a>
+
+2) crop yield prediction
+
+<a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-5_2.ipynb" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /> </a>
+
+## Week 6
+
+An introduction to computer-to-computer communication, client-server architectures, HTTP requests / responses, and web APIs. You will learn how to use Python to make requests to web APIs, use web APIs to download data into their programs, and scrape data from websites. You apply these skills to make a weather data application for a field in Western Australia that sources data from an open weather web API. You will also learn how to use the SpatioTemporal Asset Catalog (STAC) specification and STAC APIs to define and automate searches for geospatial data that meets certain query conditions from various cloud providers.
+
+1) web APIs, client-server architectures, and cloud computing
+
+<a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-6_1.ipynb" target="_blank" rel="noopener"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /> </a>
+
+2) SpatioTemporal Asset Collections - retrieving geospatial data from the cloud
+
+<a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-6_2.ipynb" target="_blank" rel="noopener"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /> </a>
