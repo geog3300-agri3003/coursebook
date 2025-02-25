@@ -64,7 +64,10 @@ nav:
       - ai/overview-and-tools.md
       - ai/example-uses.md
       - ai/prompt-engineering.md
+      - ai/verifying-and-checking-ai-responses.md
+      - ai/hugging-face-and-colab-setup.md
   - Notebooks:
+      - notebooks/week-1_0_llms.ipynb
       - notebooks/week-1_1.ipynb
       - notebooks/week-1_2.ipynb
       - notebooks/week-1_practice.ipynb

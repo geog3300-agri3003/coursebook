@@ -8,7 +8,13 @@ Beyond improving the quality of generated AI responses for a specific task, usin
 
 ## TL;DR - Prompt template
 
-Effective prompts provide explicit instructions and define the desired output format, give the LLM a role or relevant contextual information and encourage the LLM to think by providing a step-by-step account of its reasoning. It's also good practice to provide the LLM an example (if you have one) and iterate with the LLM to refine the solution. 
+Effective prompts:
+
+* provide explicit instructions and define the desired output format 
+* give the LLM a role and relevant task contextual information 
+* encourage the LLM to think by providing a step-by-step account of its reasoning
+* provide an example solution (if you have one) 
+* iterate with the LLM to refine the solution 
 
 An example prompt template:
 ```
