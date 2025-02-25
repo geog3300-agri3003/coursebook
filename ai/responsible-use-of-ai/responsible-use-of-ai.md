@@ -22,8 +22,8 @@ Read this paper that highlights some the <a href="https://doi.org/10.48550/arXiv
 
 You should not reveal personal or private data to hosted LLMs (e.g. LLMs that you access from chatgpt.com or gemini.google.com). Where possible, you should turn off data sharing with hosted LLM and AI tool providers and select options that prevent your data being used to train models. However, taking that step doesn't necessarily mean you can share personal or private data with hosted LLMs. Some steps you can take to working with LLMs and personal or private data are:
 
-* Uunderstanding what counts and personal or private data.
-* Use a LLM to generate a fake dataset that mimics the structure of your private data, and solve the problem working with the fake dataset.
+* Uunderstanding what counts and personal or private data
+* Use a LLM to generate a fake dataset that mimics the structure of your private data, and solve the problem working with the fake dataset
 * Use a local LLM or a LLM running in a computational environment you control. See this example for setting up and running your own LLM using [Hugging Face and Google Colab](hugging-face-and-colab-setup.md)
 
 ## AI, licensing and copyright

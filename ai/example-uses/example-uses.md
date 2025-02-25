@@ -2011,6 +2011,10 @@ Look at how the AI tools identify limitations and gaps with existing studies as 
 !!! tip "Review STORM and CO-STORM's brainSTORMING process"
     When generating Wikipedia-like articles or round table discussions STORM undertakes a "brainstorming" process where agents from different perspectives ask and answer questions on a topic, update their knowledge and generate new ideas. Looking at this trace is a good way for you to practice approaching a topic from different perspectives and also identify effective questions that you can reuse elsewhere when researching topics and undertaking literature reviews. 
 
+    <iframe src="https://drive.google.com/file/d/1XnY5QiJw50akczvn7tedEQXFkiVxLKur/preview" width="640" height="480" allow="autoplay"></iframe>
+
+    *The STORM interface and viewing the brainSTORMING process.*
+
 * Upload a paper to <a href="https://notebooklm.google.com" target="_blank">NotebookLM</a> and prompt it to generate a list of limitations and recommendations for further work. Or, ask <a href="https://storm.genie.stanford.edu" target="_blank">STORM Genie</a> to create to review the literature and create a list of limitations with the current state of the literature for a topic area or task.
 
 !!! tip "Reviewing lists of knowledge gaps or recommendations for further research"

@@ -1301,6 +1301,10 @@ Apps built on top of generative AI models can be used to:
     * CO-STORM can generate a mind-map of the discussion, comprising relationships between concepts, to give you a structure for thinking critically about a topic to guide further reading. 
     * CO-STORM can convert the mind-map of concepts, and associated information, generated through discussion into a report.  
 
+    <iframe src="https://drive.google.com/file/d/1SYIzT42tlWDHgygNYPs0t491xba1t3g5/preview" width="640" height="480" allow="autoplay"></iframe>
+
+    *The CO-STORM interface and interacting with a discussion.*
+
 #### Useful resources:
 
 - Macquarie University's <a href="https://libguides.mq.edu.au/AItoolsforliteraturereview/Home" target="_blank">Using AI-powered tools for literature reviews</a>
