@@ -2,10 +2,20 @@
 
 ## Dev environment
 
+Open the directory in the devcontainer to access the mkdocs tools for deploying the coursebook. 
+
 Copy docker image to `.devcontainer` directory.
 
 ```
 cp ${PWD}/docker/Dockerfile ${PWD}/.devcontainer
+```
+
+### Deploy the coursebook
+
+The coursebook is deployed as a GitHub Project Pages site. Project Pages site files get deployed to a dedicated branch (gh-pages). Checkout the main branch and run: 
+
+```
+mkdocs gh-deploy
 ```
 
 ## Docker 
