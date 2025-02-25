@@ -24,6 +24,18 @@ It will demonstrate these concepts by:
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
+3) practice exercises working with Python data types, data structures and control flow.
+
+<a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-1_practice.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
+4) practice exercises that demonstrates how to setup Google Colab to run large language models via Hugging Face.
+
+<a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-1_0_llms.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 ## Week 2
 
 These labs introduce data visualisation concepts, selecting different figures to explore a dataset's structure and relationships between variables, using colour to highlight features and patterns, and generating maps from spatial data. You will be working with crop yield data sampled by a header on a harvester from a field in the Western Australia and satellite images from the same field. 

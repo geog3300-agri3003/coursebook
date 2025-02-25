@@ -1,0 +1,2123 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../example-uses/">
+      
+      
+        <link rel="next" href="../verifying-and-checking-ai-responses/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.7">
+    
+    
+      
+        <title>Prompt engineering - GEOG3300 and AGRI3003</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prompt-engineering" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="GEOG3300 and AGRI3003" class="md-header__button md-logo" aria-label="GEOG3300 and AGRI3003" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GEOG3300 and AGRI3003
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Prompt engineering
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="http://geog3300-agri3003.github.io./coursebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GEOG3300 and AGRI3003
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../course-outline/" class="md-tabs__link">
+        
+  
+    
+  
+  Course Outline
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview-and-tools/" class="md-tabs__link">
+          
+  
+  AI and LLMs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../notebooks/week-1_0_llms/" class="md-tabs__link">
+          
+  
+  Notebooks
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GEOG3300 and AGRI3003" class="md-nav__button md-logo" aria-label="GEOG3300 and AGRI3003" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    GEOG3300 and AGRI3003
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="http://geog3300-agri3003.github.io./coursebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GEOG3300 and AGRI3003
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-outline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Outline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    AI and LLMs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            AI and LLMs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using AI for spatial and agricultural data analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example-uses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example uses of AI tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Prompt engineering
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Prompt engineering
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr-prompt-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      TL;DR - Prompt template
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explicit-instructions-and-specificity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicit instructions and specificity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chain-of-thought-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chain-of-thought prompting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-based-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role-based prompting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-based-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example-based prompting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-media-multi-modal-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-media / multi-modal prompting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative prompting
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verifying-and-checking-ai-responses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verifying and checking AI outputs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hugging-face-and-colab-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running your own LLMs: Hugging Face and Google Colab setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Notebooks
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Notebooks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-1_0_llms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 1 0 llms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-1_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 1 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-1_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 1 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-1_practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 1 practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-2_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 2 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-2_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 2 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-2_practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 2 practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-3_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 3 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-3_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 3 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-3_practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 3 practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-4_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 4 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-4_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 4 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-4_practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 4 practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-5_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 5 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-5_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 5 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-6_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 6 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-6_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 6 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/week-7_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 7 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr-prompt-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      TL;DR - Prompt template
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explicit-instructions-and-specificity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicit instructions and specificity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chain-of-thought-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chain-of-thought prompting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-based-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role-based prompting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-based-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example-based prompting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-media-multi-modal-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-media / multi-modal prompting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative prompting
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="prompt-engineering">Prompt engineering<a class="headerlink" href="#prompt-engineering" title="Permanent link">&para;</a></h1>
+<p>The quality of an LLM’s response depends on the quality of the input. Prompt engineering is the process of constructing prompts for LLMs to return best possible answers. A prompt is the input you provide to LLM, often it is a question or an instruction. </p>
+<p>There are a range of techniques that you can use to improve the quality of AI generated responses. You can use more than one of these techniques in a single prompt. </p>
+<p>Beyond improving the quality of generated AI responses for a specific task, using prompt engineering techniques can improve your learning in general. For example, you can use role-based prompting and ask the LLM to suggest improvements to your Python script from the view of a senior developer or your GIS workflow from the view of senior geospatial analysis. By doing this, you will pick up pointers to improve a range of skills from programming, data analysis to clarity of writing. With chain-of-thought prompting you can see the steps the model goes through when solving a problem. Seeing this in action can help you refine your problem solving skills, see examples of how to deconstruct complex problems into discrete steps and pick up tips that you can transfer to different tasks. </p>
+<h2 id="tldr-prompt-template">TL;DR - Prompt template<a class="headerlink" href="#tldr-prompt-template" title="Permanent link">&para;</a></h2>
+<p>Effective prompts:</p>
+<ul>
+<li>provide explicit instructions and define the desired output format </li>
+<li>give the LLM a role and relevant task contextual information </li>
+<li>encourage the LLM to think by providing a step-by-step account of its reasoning</li>
+<li>provide an example solution (if you have one) </li>
+<li>iterate with the LLM to refine the solution </li>
+</ul>
+<p>An example prompt template:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>From the perspective of [INSERT ROLE HERE], generate [PROVIDE INSTRUCTIONS HERE]. This response is intended for [TARGET AUDIENCE / USER].
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Generate the response using the following format [DEFINE OUTPUT FORMAT / STRUCTURE] using this example: [PROVIDE EXAMPLE, IF AVAILABLE].
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Provide a step-by-step explanation of each step with a justification
+</span></code></pre></div></p>
+<h2 id="explicit-instructions-and-specificity">Explicit instructions and specificity<a class="headerlink" href="#explicit-instructions-and-specificity" title="Permanent link">&para;</a></h2>
+<p>The place to start with crafting effective prompts is providing clear and specific instructions to the LLM. Be very clear on what kind of information you want generated. If you provide a general instruction or ask a vague question, you will likely get a general response. </p>
+<p>There are various ways you can improve the specificity of a prompt such as <strong>providing contextual information</strong> and <strong>defining the output format</strong>. </p>
+<p>When providing contextual informaton, you can you can specify if are you using the response to: better understand a topic? seek suggestions for improving scientific writing? improve the clarity of text for a policy audience? generate interactive visualisations for public viewing online? generate cartographic quality maps for a report? or improve the robustness of your code or GIS workflows? Provide this information in your prompt and the response will be tailored accordingly. </p>
+<p>Things to consider when defining the format of the response are: what language do you want code examples to be provided in (e.g. R, Python, JavaScript)? do you want generated text with references? what structure do you want the generated text to have (you can provide headings and sub-headings for the response in your prompt)?</p>
+<p>Consider this prompt. It outlines the instruction for the LLM and provides a little ancillary information indicating that analysis will be performed in QGIS. However, it is left quite open as to the format and level of detail the LLM should generate in response.</p>
+<div class="admonition note">
+<p class="admonition-title">Prompt</p>
+<p>Can you outline a methodology to compute the area of vegetation on bare earth roaded catchments, that drain into farm dams, from UAV images using QGIS?</p>
+<details class="note">
+<summary>Response (Gemini 2.0 Flash)</summary>
+<p>Here's a methodology to compute the area of vegetation on bare earth roaded catchments draining into farm dams using UAV images and QGIS:</p>
+<p>Data Acquisition and Preprocessing:</p>
+<ul>
+<li>UAV Image Acquisition: Capture high-resolution UAV images of the catchment area. Ensure sufficient overlap (at least 70%) for accurate orthomosaic creation. Consider capturing images at different times of the day for varying light conditions if necessary. If possible, acquire multispectral imagery to aid in vegetation classification.</li>
+<li>Orthomosaic and DEM Creation: Use photogrammetry software (e.g., Agisoft Metashape, Pix4D) to process the UAV images and generate an orthomosaic (georeferenced image) and a Digital * Elevation Model (DEM). Accurate georeferencing is crucial. Use Ground Control Points (GCPs) if possible for increased accuracy.</li>
+<li>Boundary Delineation:<ul>
+<li>Catchment Boundary: Delineate the catchment boundary that contributes to the farm dam(s). Use the DEM to identify flow paths and ridgelines. This can be done manually in QGIS or using hydrological tools.</li>
+<li>Farm Dam Boundary: Digitize the boundary of the farm dam(s) on the orthomosaic.</li>
+</ul>
+</li>
+<li>Road Network: Digitize the road network within the catchment. This will be used to identify areas of bare earth and potentially filter out vegetation growing on the road itself (if you only want vegetation off the roads).</li>
+<li>Data Projection: Ensure all your data (orthomosaic, DEM, boundaries) are in the same projected coordinate system. This is essential for accurate area calculations.</li>
+</ul>
+<p>Vegetation Classification:</p>
+<ul>
+<li>Image Enhancement (Optional): If needed, adjust the brightness, contrast, or perform other image enhancements to improve the visual distinction between vegetation and bare earth.</li>
+<li>Vegetation Index Calculation (If using multispectral imagery): Calculate vegetation indices like NDVI (Normalized Difference Vegetation Index) or other relevant indices. These indices enhance the spectral signature of vegetation, making classification easier and more accurate. In QGIS, use the Raster Calculator for this.</li>
+</ul>
+<p>Supervised or Unsupervised Classification:</p>
+<ul>
+<li>Supervised Classification: Create training areas (polygons) representing different land cover classes (e.g., vegetation, bare earth, water, roads). Use a classification algorithm (e.g., Random Forest, Support Vector Machine) in QGIS (e.g., Semi-Automatic Classification Plugin (SCP), Orfeo Toolbox (OTB)) to classify the orthomosaic based on these training areas. This is generally more accurate.</li>
+<li>Unsupervised Classification: Use a clustering algorithm (e.g., K-means) to automatically group pixels into clusters based on their spectral characteristics. Then, manually assign these clusters to land cover classes. This is faster but less accurate.</li>
+<li>Accuracy Assessment: Assess the accuracy of your classification by comparing the classified image to ground truth data (if available) or by visual inspection. You can create a confusion matrix to quantify the accuracy. Refine your training areas or classification parameters if necessary.</li>
+</ul>
+<p>Area Calculation:</p>
+<ul>
+<li>Vectorization of Classified Raster: Convert the classified raster image (containing vegetation and bare earth classes) into a vector layer (polygons). QGIS's "Polygonize" tool can be used for this.</li>
+<li>Area Calculation: Use the field calculator in the attribute table of the vectorized layer to calculate the area of each polygon. Filter the polygons to select only those classified as "vegetation." Sum the areas of these polygons to get the total vegetated area within the catchment.</li>
+<li>Area within Catchment Boundary: Use the "Clip" tool in QGIS to clip the vectorized vegetation layer to the catchment boundary. This ensures you're only calculating the vegetated area within the defined catchment.</li>
+<li>Area excluding roads (Optional): Use the "Difference" tool to subtract the road network polygons from the vegetation polygons. This will give you the vegetated area off the roads.</li>
+</ul>
+<p>Reporting and Visualization:</p>
+<ul>
+<li>Summarize Results: Calculate the percentage of vegetated area within the catchment.</li>
+<li>Create Maps: Generate maps showing the catchment boundary, farm dam, road network, and the classified vegetation. Use appropriate symbology and labels for clear communication.</li>
+</ul>
+<p>Software and Plugins:</p>
+<ul>
+<li>QGIS: Free and open-source Geographic Information System.</li>
+<li>Agisoft Metashape or Pix4D: Photogrammetry software for orthomosaic and DEM creation.</li>
+<li>Semi-Automatic Classification Plugin (SCP) or Orfeo Toolbox (OTB) for QGIS: For image classification.</li>
+</ul>
+<p>Key Considerations:</p>
+<ul>
+<li>Accuracy of UAV Data: The accuracy of your area calculation depends heavily on the quality of your UAV data (orthomosaic, DEM). GCPs are highly recommended.</li>
+<li>Classification Accuracy: Careful selection of training areas (for supervised classification) or cluster interpretation (for unsupervised classification) is crucial for accurate results.</li>
+<li>Resolution of UAV Imagery: Higher resolution imagery will generally provide more accurate results, especially for smaller vegetation patches.</li>
+<li>Shadows: Shadows can affect vegetation classification. Consider capturing images when shadows are minimal.</li>
+<li>Seasonal Variations: Vegetation cover can change seasonally. Be mindful of the timing of your UAV image acquisition.</li>
+</ul>
+<p>This methodology provides a comprehensive framework.  You may need to adapt it depending on the specifics of your study area and the available data. Remember to document all steps of your process for reproducibility.</p>
+</details>
+</div>
+<p>We can improve this prompt in a couple of ways. For example, we could provide more information on what roaded catchments are indicating that they're human constructions and may not be easily delineated via DEM-based GIS catchment mapping tools. We could also provide more details on how we'd like to map vegetation (e.g. using the multispectral images to create a NDVI layer and setting threshold for vegetation cover). We can also provide more detail about the output format, such explicitly asking for detailed instructions for using QGIS. </p>
+<div class="admonition note">
+<p class="admonition-title">Prompt</p>
+<p>Can you outline a methodology to compute the area of vegetation on bare earth roaded catchments, that drain into farm dams, from UAV images using QGIS? </p>
+<p>To compute the area of vegetation you will need to compute the NDVI from the UAV image and use a pixel NDVI threshold of greater than 0.2 to define vegetation. Provide detailed instructions and explanations for each step in the workflow including listing which QGIS operations and tools to use and where to find these tools in the QGIS user interface.</p>
+<details class="note">
+<summary>Response (Gemini 2.0 Flash)</summary>
+<p>Here's a detailed methodology to compute the area of vegetation using NDVI and a threshold in QGIS, specifically for bare earth roaded catchments draining into farm dams:</p>
+<p>Data Acquisition and Preprocessing (Same as before, but with emphasis on multispectral):</p>
+<ul>
+<li>UAV Image Acquisition: Crucially, you must acquire multispectral imagery (at least Red, Green, and Near-Infrared bands). This is essential for calculating NDVI.</li>
+<li>Orthomosaic and DEM Creation: Use photogrammetry software (e.g., Agisoft Metashape, Pix4D) to generate an orthomosaic and DEM. Ensure accurate georeferencing using GCPs if possible.</li>
+<li>Boundary Delineation: Delineate the catchment boundary, farm dam(s), and road network as polygons in QGIS, using the DEM and orthomosaic as a guide.</li>
+<li>Data Projection: Ensure all data are in the same projected coordinate system.</li>
+</ul>
+<p>NDVI Calculation in QGIS:</p>
+<ul>
+<li>Open Raster Calculator: Go to Raster -&gt; Raster calculator.</li>
+<li>Enter NDVI Formula: In the Raster calculator expression box, enter the following formula, adjusting band names if necessary (e.g., if your Red band is not called "red"):
+<code>( "NIR" - "Red" ) / ( "NIR" + "Red" )</code></li>
+<li>Replace "NIR" and "Red" with the actual band names from your orthomosaic. You can see the band names by clicking the "..." button next to the expression box and expanding your raster layer.</li>
+<li>Output Layer: Specify a name and location for the output NDVI raster file.</li>
+<li>Click OK: QGIS will calculate the NDVI for each pixel. NDVI values typically range from -1 to +1, with higher values indicating more vegetation.</li>
+</ul>
+<p>Vegetation Classification using NDVI Threshold:</p>
+<ul>
+<li>Reclassify Raster: Go to Raster -&gt; Raster calculator.</li>
+<li>Create Reclassification Expression: In the Raster calculator, use a conditional expression to classify pixels based on the NDVI threshold. For a threshold of 0.2:
+CASE WHEN "NDVI@1" &gt; 0.2 THEN 1 ELSE 0 END</li>
+<li>Replace "NDVI@1" with the name of your NDVI raster layer. 1 represents vegetation, and 0 represents non-vegetation (bare earth, water, etc.).</li>
+<li>Output Layer: Specify a name and location for the reclassified raster (e.g., "vegetation_mask").</li>
+<li>Click OK: QGIS will create a new raster where pixels with NDVI &gt; 0.2 are assigned the value 1 (vegetation), and others are assigned 0.</li>
+</ul>
+<p>Refining the Vegetation Mask (Optional but Recommended):</p>
+<ul>
+<li>Remove Small Patches (Sieve): Small, isolated pixels classified as vegetation might be noise. Go to Raster -&gt; Analysis -&gt; Sieve. Input your reclassified raster. Set the "Pixel threshold" to a value that removes small patches (e.g., 4 for removing patches smaller than 4 pixels).</li>
+<li>Fill Holes: Small holes within larger vegetation patches can be filled. Go to Raster -&gt; Analysis -&gt; Fill nodata.</li>
+</ul>
+<p>Area Calculation:</p>
+<ul>
+<li>Polygonize Raster: Convert the classified raster to a vector layer (polygons). Go to Raster -&gt; Conversion -&gt; Polygonize (raster to vector). Input your reclassified raster (or the sieved/filled raster if you performed those steps).</li>
+<li>Calculate Area: Open the attribute table of the newly created polygon layer (right-click the layer -&gt; Open Attribute Table).</li>
+<li>Add Area Field: If an area field doesn't already exist, create one. Click the "Toggle Editing" button (pencil icon), then click the "Open Field Calculator" button (abacus icon).</li>
+<li>New field name: area</li>
+<li>New field type: Decimal number (real)</li>
+<li>Expression: $area (This will calculate the area in the layer's units)</li>
+<li>Click OK.</li>
+<li>Filter Vegetation Polygons: In the attribute table, use the "Select by expression" tool (epsilon icon) to select polygons where the value of the reclassified field (usually named something like "DN") is equal to 1 (vegetation). The expression would be: "DN" = 1</li>
+<li>Calculate Sum of Area: With the vegetation polygons selected, you can see the sum of the area of the selected features in the attribute table (usually at the bottom).</li>
+</ul>
+<p>Clipping to Catchment Boundary:</p>
+<ul>
+<li>Clip Vector Layer: Go to Vector -&gt; Geoprocessing Tools -&gt; Clip. Input your vegetation polygon layer, and the catchment boundary polygon as the "Clip layer." This will give you the vegetated area within the catchment. Repeat the area calculation from step 5 on this clipped layer.</li>
+<li>Clip Vector Layer to exclude roads (Optional): Go to Vector -&gt; Geoprocessing Tools -&gt; Difference. Input your clipped vegetation polygon layer, and the road network as the "Overlay layer." This will give you the vegetated area off the roads. Repeat the area calculation from step 5 on this difference layer.</li>
+</ul>
+<p>Reporting and Visualization:</p>
+<ul>
+<li>Summarize Results: Calculate the percentage of vegetated area.</li>
+<li>Create Maps: Generate maps showing the catchment, dam, roads, and the classified vegetation.</li>
+</ul>
+<p>Key Considerations:</p>
+<ul>
+<li>NDVI Threshold: The 0.2 threshold is a starting point. You might need to adjust it based on your specific area and vegetation types. Experiment with different thresholds and validate your results.</li>
+<li>Shadows and Water: Shadows can affect NDVI. Water bodies often have low NDVI values, so they might be classified as non-vegetation. You might need to use additional techniques (e.g., masking) to deal with these issues.</li>
+<li>Accuracy: The accuracy of your area calculation depends on the quality of your UAV data, the chosen NDVI threshold, and the accuracy of your boundary delineations.</li>
+</ul>
+<p>This detailed workflow should help you calculate the vegetated area within your catchments. Remember to document your steps and justify your choices (e.g., the NDVI threshold you used).</p>
+</details>
+</div>
+<h2 id="chain-of-thought-prompting">Chain-of-thought prompting<a class="headerlink" href="#chain-of-thought-prompting" title="Permanent link">&para;</a></h2>
+<p>Chain-of-thought prompting instructs the LLM to break solutions to questions or instructions down into a series of intermediate problems that are solved individually. This technique is particularly effective for large, complex or multi-step tasks and reasoning problems. Chain-of-thought prompting encourages the model to focus attention on individual parts of the problem, not skip reasoning steps and often returns more accurate responses. </p>
+<p>You can implement chain-of-thought prompting via providing explicit instructions of the steps you want the model to work through (example 1) or finish your prompt with an instruction for the model to implement step-by-step reasoning (example 2). </p>
+<p><strong>Example 1:</strong> </p>
+<div class="admonition note">
+<p class="admonition-title">Prompt - example 1</p>
+<p>You are a remote sensing and machine learning specialist and consultant. Your task is to develop a land cover classification product for a regional local government organisation in Western Australia. </p>
+<p>You need to develop a land cover classification workflow that will generate a 10 m spatial resolution land cover map that includes the following classes: urban, water, grassland, scrubland, agriculture, mangrove, mudflats, open trees, forest. Please can you generate instructions and explanatory notes for the following steps:</p>
+<ol>
+<li>Generate training data that captures the geographic diversity of the land cover classes in the study area.</li>
+<li>Generate test data from a probability sample to support robust map accuracy assessment. </li>
+<li>Download Sentinel-2 images from Planetary Computer.</li>
+<li>Combine data from Sentinel-2 images with the labelled training and test data and transform the data to a format suitable for machine learning model development. </li>
+<li>Train a machine learning model to classify Sentinel-2 images into land cover maps. </li>
+<li>Evaluate the model using the test data. </li>
+<li>Generate a web map viewer for the classified land cover map land cover map. </li>
+</ol>
+<p>Include Python code for each step where relevant. </p>
+<details class="note">
+<summary>Response (ChatGPT)</summary>
+<p>Developing a 10-meter spatial resolution land cover map for a regional local government organization in Western Australia involves several key steps. Below is a detailed workflow, including Python code snippets where applicable.</p>
+<p>Generate Training Data</p>
+<p>Objective: Collect representative samples for each land cover class to train the classification model.</p>
+<ul>
+<li>Field Surveys: Conduct on-site visits to collect GPS coordinates and photographs of distinct land cover types.</li>
+<li>High-Resolution Imagery: Utilize platforms like Google Earth or commercial satellite imagery to visually identify and digitize polygons corresponding to each class.</li>
+<li>Existing Datasets: Incorporate data from local environmental agencies or previous studies that have classified land cover in the region.</li>
+<li>Note: Ensure that the training data captures the geographic diversity and variability of each class within the study area.</li>
+</ul>
+<p>Generate Test Data</p>
+<p>Objective: Create a statistically robust dataset to evaluate the accuracy of the land cover map.</p>
+<ul>
+<li>Probability Sampling: Implement a stratified random sampling approach to select test points across different land cover classes.</li>
+<li>Sample Size Determination: Calculate the number of samples needed per class to achieve a desired confidence level and margin of error.</li>
+<li>Data Collection: For each selected point, record the true land cover class through field verification or high-resolution imagery interpretation.</li>
+<li>Note: The test data should be independent of the training data to provide an unbiased assessment of model performance.</li>
+</ul>
+<p>Download Sentinel-2 Images from Planetary Computer</p>
+<p>Objective: Acquire Sentinel-2 imagery covering the study area for the relevant time period.</p>
+<ul>
+<li>Utilize the sentinelsat Python package to search and download Sentinel-2 data from the Copernicus Open Access Hub.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">sentinelsat</span> <span class="kn">import</span> <span class="n">SentinelAPI</span><span class="p">,</span> <span class="n">read_geojson</span><span class="p">,</span> <span class="n">geojson_to_wkt</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># User credentials for Copernicus Open Access Hub</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">api</span> <span class="o">=</span> <span class="n">SentinelAPI</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="s1">&#39;https://scihub.copernicus.eu/dhus&#39;</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Define the area of interest (AOI) by loading a geojson file</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">footprint</span> <span class="o">=</span> <span class="n">geojson_to_wkt</span><span class="p">(</span><span class="n">read_geojson</span><span class="p">(</span><span class="s1">&#39;aoi.geojson&#39;</span><span class="p">))</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Search for Sentinel-2 products over the AOI within the specified date range</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">products</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">footprint</span><span class="p">,</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>                    <span class="n">date</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;20220101&#39;</span><span class="p">,</span> <span class="s1">&#39;20220131&#39;</span><span class="p">),</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                    <span class="n">platformname</span><span class="o">=</span><span class="s1">&#39;Sentinel-2&#39;</span><span class="p">,</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>                    <span class="n">cloudcoverpercentage</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c1"># Download all results from the search</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="n">api</span><span class="o">.</span><span class="n">download_all</span><span class="p">(</span><span class="n">products</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Note: Replace 'username' and 'password' with your actual credentials. Adjust the date range and cloud cover percentage as needed.</p>
+<p>Prepare Data for Machine Learning</p>
+<p>Objective: Process and organize the imagery and labeled data for model training and evaluation.</p>
+<p>Preprocessing Sentinel-2 Imagery:</p>
+<ul>
+<li>Atmospheric Correction: Apply correction algorithms (e.g., Sen2Cor) to convert Top-Of-Atmosphere (TOA) reflectance to Bottom-Of-Atmosphere (BOA) reflectance.</li>
+<li>Resampling: Standardize all bands to a 10-meter resolution.</li>
+<li>Clipping: Trim the imagery to the study area's boundaries.</li>
+</ul>
+<p>Feature Extraction:</p>
+<ul>
+<li>Spectral Indices: Compute indices such as NDVI (Normalized Difference Vegetation Index) to enhance class separability.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">rasterio</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">rasterio.plot</span> <span class="kn">import</span> <span class="n">show</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Open the red and NIR bands</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;B04.tif&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">red</span><span class="p">:</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">red_band</span> <span class="o">=</span> <span class="n">red</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;B08.tif&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">nir</span><span class="p">:</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">nir_band</span> <span class="o">=</span> <span class="n">nir</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># Calculate NDVI</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">ndvi</span> <span class="o">=</span> <span class="p">(</span><span class="n">nir_band</span> <span class="o">-</span> <span class="n">red_band</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nir_band</span> <span class="o">+</span> <span class="n">red_band</span><span class="p">)</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1"># Save NDVI to a new GeoTIFF</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">ndvi_meta</span> <span class="o">=</span> <span class="n">red</span><span class="o">.</span><span class="n">meta</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="n">ndvi_meta</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">rasterio</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;ndvi.tif&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">ndvi_meta</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ndvi</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Data Integration:</p>
+<ul>
+<li>Label Assignment: Overlay training and test data points on the processed imagery to extract corresponding pixel values and assign class labels.</li>
+<li>Dataset Creation: Organize the extracted features and labels into structured arrays or dataframes suitable for input into machine learning algorithms.</li>
+</ul>
+<p>Train a Machine Learning Model</p>
+<p>Objective: Develop a model capable of classifying land cover types based on the input features.</p>
+<ul>
+<li>Model Selection: Choose an appropriate algorithm, such as Random Forest, Support Vector Machine, or a Convolutional Neural Network, depending on the complexity and size of the dataset.</li>
+</ul>
+<p>Training the Model:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># Assume X contains feature vectors and y contains corresponding labels</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># Initialize and train the Random Forest classifier</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">rf_model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">rf_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="c1"># Validate the model</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="n">rf_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Validation Accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Note: Hyperparameter tuning and cross-validation are essential to optimize model performance.</p>
+<p>Evaluate the Model</p>
+<p>Objective: Assess the accuracy and reliability of the land cover classification.</p>
+<ul>
+<li>Confusion Matrix: Generate a confusion matrix to visualize the performance across different classes.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">classification_report</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Compute confusion matrix</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></code></pre></div>
+</details>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Prompt - example 2</p>
+<p>You are a remote sensing and machine learning specialist and consultant. Your task is to develop a land cover classification product for a regional local government organisation in Western Australia. </p>
+<p>You need to develop a land cover classification workflow that will generate a 10 m spatial resolution land cover map that includes the following classes: urban, water, grassland, scrubland, agriculture, mangrove, mudflats, open trees, forest. The task requires that you need to generate training data that captures the geographic diversity of the land cover classes in the study area and test data from a probability sample. You need to create a data processing pipeline to download Sentinel-2 images from Microsoft’s Planetary Computer and combine it with the labelled training and test data. You need to train a machine learning model to classify Sentinel-2 images into land cover maps and evaluate this model. The final task is to visualise the land cover map on a slippy web map. </p>
+<p>Can you outline the solution in a step-by-step manner. For each step, please explain why this approach is suitable for this task. Also, include Python code for each step where relevant.</p>
+<details class="note">
+<summary>Response (Perplexity)</summary>
+<p>Certainly! I'll outline a step-by-step solution for developing a land cover classification product using Sentinel-2 imagery and machine learning techniques. This approach is tailored for a regional local government organization in Western Australia, aiming to create a 10 m spatial resolution land cover map with specific classes.</p>
+<p>Step 1: Data Collection and Preparation</p>
+<p>Sentinel-2 Image Acquisition</p>
+<p>We'll use Microsoft's Planetary Computer to access Sentinel-2 imagery. This platform provides easy access to a vast archive of Earth observation data, including Sentinel-2 images<a href="https://arxiv.org/abs/2309.05930">^1</a>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">planetary_computer</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span> <span class="nn">pystac_client</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">import</span> <span class="nn">rasterio</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1"># Initialize the Planetary Computer STAC API client</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">catalog</span> <span class="o">=</span> <span class="n">pystac_client</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;https://planetarycomputer.microsoft.com/api/stac/v1&quot;</span><span class="p">)</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1"># Search for Sentinel-2 imagery</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">search</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="n">collections</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sentinel-2-l2a&quot;</span><span class="p">],</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mf">115.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">35.0</span><span class="p">,</span> <span class="mf">129.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">13.0</span><span class="p">],</span>  <span class="c1"># Approximate bounding box for Western Australia</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="n">datetime</span><span class="o">=</span><span class="s2">&quot;2024-01-01/2025-02-23&quot;</span><span class="p">,</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="n">query</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;eo:cloud_cover&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lt&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}}</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">)</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="c1"># Download and stack relevant bands</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">get_items</span><span class="p">())</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    <span class="n">signed_item</span> <span class="o">=</span> <span class="n">planetary_computer</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>    <span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;B02&quot;</span><span class="p">,</span> <span class="s2">&quot;B03&quot;</span><span class="p">,</span> <span class="s2">&quot;B04&quot;</span><span class="p">,</span> <span class="s2">&quot;B08&quot;</span><span class="p">,</span> <span class="s2">&quot;B11&quot;</span><span class="p">,</span> <span class="s2">&quot;B12&quot;</span><span class="p">]</span>  <span class="c1"># Blue, Green, Red, NIR, SWIR1, SWIR2</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>    <span class="n">arrays</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>    <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">bands</span><span class="p">:</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>        <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">signed_item</span><span class="o">.</span><span class="n">assets</span><span class="p">[</span><span class="n">band</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>            <span class="n">arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>    <span class="n">stacked_image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">arrays</span><span class="p">)</span>
+</span></code></pre></div>
+<p>This approach is suitable because it allows us to efficiently access and process large volumes of satellite imagery without the need for local storage<a href="https://arxiv.org/abs/2309.05930">^1</a>.</p>
+<p>Training Data Generation</p>
+<p>To capture the geographic diversity of land cover classes, we'll use a stratified random sampling approach:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Load a shapefile of the study area</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">study_area</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;study_area.shp&quot;</span><span class="p">)</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Generate stratified random points</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">points</span> <span class="o">=</span> <span class="n">study_area</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="s2">&quot;land_cover_class&quot;</span><span class="p">)</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Split into training and validation sets</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">train_points</span><span class="p">,</span> <span class="n">val_points</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">points</span><span class="p">[</span><span class="s2">&quot;land_cover_class&quot;</span><span class="p">])</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="c1"># Save points for field verification</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="n">train_points</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;training_points.shp&quot;</span><span class="p">)</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="n">val_points</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;validation_points.shp&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>This method ensures that we have representative samples for each land cover class across the study area<a href="https://docs.openeo.cloud/usecases/crop-classification/">^9</a>.</p>
+<p>Step 2: Image Processing and Feature Extraction</p>
+<p>We'll create spectral indices and texture features to enhance the classification:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">calculate_indices</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">blue</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">nir</span><span class="p">,</span> <span class="n">swir1</span><span class="p">,</span> <span class="n">swir2</span> <span class="o">=</span> <span class="n">image</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">ndvi</span> <span class="o">=</span> <span class="p">(</span><span class="n">nir</span> <span class="o">-</span> <span class="n">red</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nir</span> <span class="o">+</span> <span class="n">red</span><span class="p">)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">ndwi</span> <span class="o">=</span> <span class="p">(</span><span class="n">green</span> <span class="o">-</span> <span class="n">nir</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">green</span> <span class="o">+</span> <span class="n">nir</span><span class="p">)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="n">savi</span> <span class="o">=</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">nir</span> <span class="o">-</span> <span class="n">red</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nir</span> <span class="o">+</span> <span class="n">red</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">image</span><span class="p">,</span> <span class="n">ndvi</span><span class="p">,</span> <span class="n">ndwi</span><span class="p">,</span> <span class="n">savi</span><span class="p">))</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">processed_images</span> <span class="o">=</span> <span class="p">[</span><span class="n">calculate_indices</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">stacked_images</span><span class="p">]</span>
+</span></code></pre></div>
+<p>These spectral indices are particularly useful for distinguishing between vegetation types, water bodies, and built-up areas<a href="https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2020.00099/full">^4</a>.</p>
+<p>Step 3: Machine Learning Model Training</p>
+<p>We'll use a Random Forest classifier, which has shown good performance in land cover classification tasks<a href="https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2020.00099/full">^4</a>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Prepare training data</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">X</span> <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span><span class="n">train_points</span><span class="p">,</span> <span class="n">processed_images</span><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">y</span> <span class="o">=</span> <span class="n">train_points</span><span class="p">[</span><span class="s2">&quot;land_cover_class&quot;</span><span class="p">]</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># Define parameter grid</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="s1">&#39;min_samples_split&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="p">}</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="c1"># Perform grid search</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">rf</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="c1"># Train final model</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="n">best_rf</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="n">best_rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Random Forest is suitable for this task due to its ability to handle high-dimensional data, resistance to overfitting, and good performance on imbalanced datasets<a href="https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2020.00099/full">^4</a>.</p>
+<p>Step 4: Model Evaluation</p>
+<p>We'll use the validation set to assess the model's performance:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">cohen_kappa_score</span><span class="p">,</span> <span class="n">classification_report</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># Prepare validation data</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">X_val</span> <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span><span class="n">val_points</span><span class="p">,</span> <span class="n">processed_images</span><span class="p">)</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">y_val</span> <span class="o">=</span> <span class="n">val_points</span><span class="p">[</span><span class="s2">&quot;land_cover_class&quot;</span><span class="p">]</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># Make predictions</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="n">best_rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c1"># Calculate metrics</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="n">kappa</span> <span class="o">=</span> <span class="n">cohen_kappa_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="n">report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kappa: </span><span class="si">{</span><span class="n">kappa</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+</span></code></pre></div>
+<p>These metrics provide a comprehensive assessment of the model's performance, with the Kappa coefficient being particularly useful for multi-class problems<a href="https://docs.openeo.cloud/usecases/crop-classification/">^9</a>.</p>
+<p>Step 5: Land Cover Map Generation</p>
+<p>Apply the trained model to the entire study area:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span> <span class="nf">predict_landcover</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">features</span> <span class="o">=</span> <span class="n">calculate_indices</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">prediction</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">^</span><span class="mi">0</span><span class="p">]))</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="k">return</span> <span class="n">prediction</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">^</span><span class="mi">1</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">^</span><span class="mi">2</span><span class="p">])</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">landcover_map</span> <span class="o">=</span> <span class="n">predict_landcover</span><span class="p">(</span><span class="n">stacked_image</span><span class="p">,</span> <span class="n">best_rf</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Step 6: Visualization on a Slippy Web Map</p>
+<p>We'll use Folium to create an interactive web map:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span> <span class="nn">folium</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">from</span> <span class="nn">branca.colormap</span> <span class="kn">import</span> <span class="n">LinearColormap</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Create a color map</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;#00FF00&#39;</span><span class="p">,</span> <span class="s1">&#39;#0000FF&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>  <span class="c1"># Define colors for each class</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">color_map</span> <span class="o">=</span> <span class="n">LinearColormap</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">))</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1"># Create a map centered on the study area</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">27.0</span><span class="p">,</span> <span class="mf">121.0</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="c1"># Add the land cover layer</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="n">folium</span><span class="o">.</span><span class="n">raster_layers</span><span class="o">.</span><span class="n">ImageOverlay</span><span class="p">(</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>    <span class="n">landcover_map</span><span class="p">,</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>    <span class="n">bounds</span><span class="o">=</span><span class="p">[[</span><span class="n">study_area</span><span class="o">.</span><span class="n">total_bounds</span><span class="p">[</span><span class="o">^</span><span class="mi">1</span><span class="p">],</span> <span class="n">study_area</span><span class="o">.</span><span class="n">total_bounds</span><span class="p">[</span><span class="o">^</span><span class="mi">0</span><span class="p">]],</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>            <span class="p">[</span><span class="n">study_area</span><span class="o">.</span><span class="n">total_bounds</span><span class="p">[</span><span class="o">^</span><span class="mi">3</span><span class="p">],</span> <span class="n">study_area</span><span class="o">.</span><span class="n">total_bounds</span><span class="p">[</span><span class="o">^</span><span class="mi">2</span><span class="p">]]],</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>    <span class="n">colormap</span><span class="o">=</span><span class="n">color_map</span><span class="p">,</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>    <span class="n">opacity</span><span class="o">=</span><span class="mf">0.7</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="c1"># Add a legend</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="n">color_map</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="c1"># Save the map</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="n">m</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;landcover_map.html&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>This interactive map allows users to explore the land cover classification results easily<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9950293/">^5</a>.</p>
+<p>This comprehensive workflow combines state-of-the-art satellite imagery, robust machine learning techniques, and interactive visualization to create an accurate and user-friendly land cover classification product for the Western Australian local government organization. The use of Sentinel-2 imagery provides high spatial resolution (10 m) suitable for detailed land cover mapping, while the Random Forest classifier offers good performance and interpretability. The final web map visualization ensures that the results are accessible and easy to understand for decision-makers and stakeholders.</p>
+</details>
+</div>
+<h2 id="role-based-prompting">Role-based prompting<a class="headerlink" href="#role-based-prompting" title="Permanent link">&para;</a></h2>
+<p>Role-based prompting assigns the LLM a “role” for to the task or interaction and it can improve the accuracy of responses and their relevance for target audiences or tasks. For example, if you want the LLM to generate detailed content for a technical or scientific topic, you could assign it the role of a domain expert such as a “remote sensing specialist” or “senior geospatial analyst”. Or, if you are looking for clear and accessible explanation of a concept you could assign the LLM the role of a “teacher”. </p>
+<div class="admonition note">
+<p class="admonition-title">Prompt</p>
+<p>You are a senior geospatial data scientist. Can you make suggestions for improving this workflow for crop type classification using remote sensing data?</p>
+<ol>
+<li>Generate crop type labels using Google Street View</li>
+<li>Generate predictor variables using single-date Landsat data</li>
+<li>Train machine learning model to associate Landsat data with crop type labels</li>
+<li>Evaluate model using government datasets and farmer records</li>
+</ol>
+<details class="note">
+<summary>Response (Perplexity with ChatGPT's o3-mini reasoning model)</summary>
+<p>To improve the workflow for crop type classification using remote sensing data, I suggest the following enhancements based on the current workflow and relevant findings from the search results:</p>
+<p><strong>Use Multi-Date Satellite Imagery Instead of Single-Date Landsat Data</strong></p>
+<p><strong>Reason:</strong> Single-date imagery may not capture the full phenological cycle of crops, which is crucial for distinguishing between crop types. Studies show that multi-date imagery improves classification accuracy by leveraging spectral and temporal variations across different stages of crop growth.</p>
+<p><strong>Improvement:</strong></p>
+<ul>
+<li>Incorporate multi-date Landsat or Sentinel-2 data to capture key phenological stages (e.g., planting, peak growth, harvest).</li>
+<li>Generate vegetation indices (e.g., NDVI, EVI) for each date to enhance feature space.</li>
+</ul>
+<p><strong>Code Example:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kn">import</span> <span class="nn">planetary_computer</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Define time periods for multi-date imagery</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">time_periods</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;2024-05-01/2024-06-30&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-08-01/2024-09-30&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-11-01/2024-12-31&quot;</span><span class="p">]</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># Search for multi-date Landsat data</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="k">for</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">time_periods</span><span class="p">:</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>    <span class="n">search</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>        <span class="n">collections</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;landsat-c2-l2&quot;</span><span class="p">],</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>        <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mf">115.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">35.0</span><span class="p">,</span> <span class="mf">129.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">13.0</span><span class="p">],</span>  <span class="c1"># Western Australia bounding box</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>        <span class="n">datetime</span><span class="o">=</span><span class="n">period</span><span class="p">,</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>        <span class="n">query</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;eo:cloud_cover&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lt&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}}</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>    <span class="p">)</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>    <span class="n">images</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">get_items</span><span class="p">()))</span>
+</span></code></pre></div>
+<p><strong>Enhance Crop Type Labels with Automated Deep Learning on Street View Imagery</strong></p>
+<p><strong>Reason:</strong> Generating crop type labels manually from Google Street View (GSV) is time-consuming and prone to errors. Automated deep learning pipelines can efficiently extract crop type information from street-level imagery with minimal manual labeling.</p>
+<p><strong>Improvement:</strong></p>
+<ul>
+<li>Use a Convolutional Neural Network (CNN) or pre-trained models (e.g., GPT-4V) to classify GSV images automatically.</li>
+<li>Combine weakly labeled GSV data with remote sensing time series to generate robust training datasets.</li>
+</ul>
+<p><strong>Code Example:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># Load pre-trained CNN model for crop type classification</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;crop_type_cnn.h5&quot;</span><span class="p">)</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1"># Predict crop types from GSV images</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="k">def</span> <span class="nf">predict_crop_type</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">preprocess_image</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>  <span class="c1"># Preprocess image for CNN input</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    <span class="n">prediction</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="c1"># Apply predictions to a dataset of GSV images</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="n">crop_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">predict_crop_type</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span> <span class="k">for</span> <span class="n">img_path</span> <span class="ow">in</span> <span class="n">gsv_image_paths</span><span class="p">]</span>
+</span></code></pre></div>
+<p>Integrate Phenology-Based Approaches**</p>
+<p><strong>Reason:</strong> Crop-specific phenological patterns (e.g., growth cycles) can help distinguish between similar crops. Incorporating phenology-based classification methods enhances accuracy by leveraging temporal changes in vegetation indices.</p>
+<p><strong>Improvement:</strong></p>
+<ul>
+<li>Use time-series analysis of vegetation indices like NDVI, SAVI, and EVI to identify unique crop phenologies.</li>
+<li>Combine spectral indices with texture features for improved discrimination.</li>
+</ul>
+<p><strong>Code Example:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># Calculate NDVI over multiple dates</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="k">def</span> <span class="nf">calculate_ndvi</span><span class="p">(</span><span class="n">nir_band</span><span class="p">,</span> <span class="n">red_band</span><span class="p">):</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">nir_band</span> <span class="o">-</span> <span class="n">red_band</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nir_band</span> <span class="o">+</span> <span class="n">red_band</span><span class="p">)</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="n">ndvi_series</span> <span class="o">=</span> <span class="p">[</span><span class="n">calculate_ndvi</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;B5&quot;</span><span class="p">],</span> <span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;B4&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">images</span><span class="p">))]</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="n">phenology_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">ndvi_series</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Leverage Sentinel-2 Data for Higher Spatial Resolution</strong></p>
+<p><strong>Reason:</strong> Sentinel-2 provides 10 m spatial resolution compared to Landsat's 30 m, which is more suitable for smallholder farms or heterogeneous landscapes often found in regions like Western Australia.</p>
+<p><strong>Improvement:</strong></p>
+<ul>
+<li>Replace Landsat data with Sentinel-2 imagery to capture finer spatial details.</li>
+<li>Use Sentinel-2's additional bands (e.g., Red Edge) to improve spectral discrimination between crops.</li>
+</ul>
+<p>Evaluate Model with Independent Datasets and Stratified Sampling**</p>
+<p><strong>Reason:</strong> Current evaluation relies on government datasets and farmer records, which may not be spatially representative or fully accurate. Stratified sampling ensures better geographic and class representation.</p>
+<p><strong>Improvement:</strong></p>
+<ul>
+<li>Use stratified random sampling to create validation datasets covering diverse land cover types.</li>
+<li>Supplement evaluation with independent datasets like the Cropland Data Layer (CDL) or other open-access crop maps.</li>
+</ul>
+<p><strong>Code Example:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1"># Stratify by crop type class</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">train_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;crop_type&quot;</span><span class="p">])</span>
+</span></code></pre></div>
+<p><strong>Incorporate Ensemble Learning Models</strong></p>
+<p><strong>Reason:</strong> Ensemble methods such as Random Forests or Gradient Boosting outperform single models by combining predictions from multiple learners.</p>
+<p><strong>Improvement:</strong></p>
+<ul>
+<li>Train ensemble models on multi-date features and phenology-based indices.</li>
+<li>Evaluate ensemble performance against single classifiers.</li>
+</ul>
+<p><strong>Code Example:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># Train Random Forest model</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">rf_model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="n">rf_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># Predict and evaluate</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="n">rf_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Visualize Results Using Interactive Maps</strong></p>
+<p><strong>Reason:</strong> Visualizing classification results on a web map improves stakeholder accessibility and decision-making.</p>
+<p><strong>Improvement:</strong></p>
+<ul>
+<li>Use tools like Folium or Kepler.gl to create interactive maps showing classified crop types.</li>
+<li>Include overlays of ground truth points and confidence scores.</li>
+</ul>
+<p><strong>Code Example:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kn">import</span> <span class="nn">folium</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1"># Create an interactive map with classified results</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">27.0</span><span class="p">,</span> <span class="mf">121.0</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="n">folium</span><span class="o">.</span><span class="n">raster_layers</span><span class="o">.</span><span class="n">ImageOverlay</span><span class="p">(</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>    <span class="n">image</span><span class="o">=</span><span class="n">classified_map</span><span class="p">,</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>    <span class="n">bounds</span><span class="o">=</span><span class="p">[[</span><span class="n">study_area</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="o">^</span><span class="mi">1</span><span class="p">],</span> <span class="n">study_area</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="o">^</span><span class="mi">0</span><span class="p">]],</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>            <span class="p">[</span><span class="n">study_area</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="o">^</span><span class="mi">3</span><span class="p">],</span> <span class="n">study_area</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="o">^</span><span class="mi">2</span><span class="p">]]],</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>    <span class="n">opacity</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="n">m</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;crop_classification_map.html&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Summary of Improvements:</p>
+<ol>
+<li>Use multi-date imagery to capture phenological variations.</li>
+<li>Automate label generation from GSV using deep learning.</li>
+<li>Incorporate phenology-based approaches for temporal analysis.</li>
+<li>Replace Landsat with Sentinel-2 for higher spatial resolution.</li>
+<li>Evaluate using stratified sampling and independent datasets.</li>
+<li>Train ensemble models for better predictive performance.</li>
+<li>Visualize results interactively for stakeholders.</li>
+</ol>
+<p>These enhancements address limitations in the current workflow by improving data quality, leveraging advanced machine learning techniques, and providing actionable insights through visualization tools.</p>
+<p>[^22]: https://learn.geo4.dev/Satellite Crop Mapping.html</p>
+<p>[^57]: https://www.infrastructure.gov.au/sites/default/files/documents/BCR Open government data report - final - 5 Feb2016.pdf</p>
+</details>
+</div>
+<h2 id="example-based-prompting">Example-based prompting<a class="headerlink" href="#example-based-prompting" title="Permanent link">&para;</a></h2>
+<p>LLMs can generate responses to questions or instructions without seeing any examples; this is called zero-shot prompting. However, you can provide one (single-shot prompting) or multiple (many-shot prompting) examples that illustrate the style of response you’d like returned or the logic the LLM should use to solve problems. </p>
+<div class="admonition note">
+<p class="admonition-title">Prompt</p>
+<p>Can you write Python functions to compute the following vegetation indices: EVI, OSAVI and NDWI? The functions should take in a Sentinel-2 image stored as a Numpy array. Use the following as an example format:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">def</span> <span class="nf">calculate_ndvi</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">nir</span><span class="p">):</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="sd">    Calculates the Normalized Difference Vegetation Index (NDVI).</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="sd">    Args:</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="sd">        red (numpy.ndarray): Red band array.</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="sd">        nir (numpy.ndarray): Near-infrared band array.</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="sd">    Returns:</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="sd">        numpy.ndarray: NDVI array.</span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>    <span class="c1"># Prevent division by zero</span>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>    <span class="n">ndvi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">nir</span> <span class="o">+</span> <span class="n">red</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">nir</span> <span class="o">-</span> <span class="n">red</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nir</span> <span class="o">+</span> <span class="n">red</span><span class="p">))</span>
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>    <span class="k">return</span> <span class="n">ndvi</span>
+</span></code></pre></div>
+</div>
+<h2 id="multi-media-multi-modal-prompting">Multi-media / multi-modal prompting<a class="headerlink" href="#multi-media-multi-modal-prompting" title="Permanent link">&para;</a></h2>
+<p><a href="https://ai.google.dev/gemini-api/docs/file-prompting-strategies" target="_blank">Prompts to multi-modal models can include more than one type of data</a>. For example, you could upload a file, image or code alongside providing a written prompt. Be clear when prompting the model to use the all the data sources; if you upload an image you can start your prompt by asking the model to describe the image (focusing the model’s attention on the image) before generating the response you’re actually after. Multi-media prompting allows you to provide more context the model; this can improve the relevancy and factuality of generated responses. </p>
+<p>While it's not about agricultural or geospatial data, this is a great <a href="https://developers.googleblog.com/en/how-its-made-interacting-with-gemini-through-multimodal-prompting/" target="_blank">guide to multi-modal prompting</a>. However, this can illustrate ways you can use multi-modal prompting for spatial and agricultural analysis tasks. Here are some examples for you to try out:</p>
+<ul>
+<li><strong>Spatial reasoning and logic</strong>: upload a map and prompt the AI to detect spatial patterns and interpret them (e.g. upload a map of crop yield within a paddock and prompt the AI to describe the spatial pattern of yield, comment on spatial variability in yield and identify underperforming zones).</li>
+<li><strong>Image sequences</strong>: upload a "film strip" of images an prompt the AI to describe the spatio-temporal dynamics present in the images (e.g. upload a sequence of RGB satellite images of a canola field and ask the AI to describe the spatio-temporal pattern of flowering and explain the variability in timing and intensity of flowering within the field; upload regional maps of precipitation and prompt the AI to detect drying trends or drought risk; upload a series of land cover maps and prompt the AI to describe patterns in deforestation or agricultural expansion).</li>
+<li><strong>Image feedback</strong>: upload an image (e.g. a map or figure) to the AI and ask for improvements for communicating key patterns, insights or information or ask for suggestions on how to edit for different audiences (e.g. a scientific graph to a graph for policy brief or infographic).</li>
+<li><strong>Video streaming and conversations</strong>: With <a href="https://aistudio.google.com" target="_blank">Google’s AI studio</a> you can screenshare a paper you're reading, your coding environment or desktop GIS and have a verbal conversation about what's on your screen. For example, you could ask the AI to help explain a figure in a paper or report on your screen or help you navigate around QGIS to find operations. </li>
+<li><strong>Presentation feedback</strong>: Share your web cam with <a href="https://aistudio.google.com" target="_blank">Google’s AI studio</a> and practice a presentation and get feedback on ways to improve delivery. </li>
+</ul>
+<!-- !!! note "Prompt"
+    The uploaded image is a map of a land cover classification generated for a region in Western Australia from Sentinel-2 images processed by a machine learning model. Can you describe the land cover map? Can you make a series of suggestion for how the map can be improved?  -->
+
+<h2 id="iterative-prompting">Iterative prompting<a class="headerlink" href="#iterative-prompting" title="Permanent link">&para;</a></h2>
+<p>Iterative prompting can be an effective technique to generate more accurate and relevant responses. Often, AI tools don't generate a correct or the most relevant prompt at the first attempt. In successive prompts you can provide feedback to the AI on how it should refine its responses. This has multiple benefits; with successive prompts you are providing more context to the AI tool, which it can use to improve the quality of the response, and you get the opportunity to clarify your thinking or develop new ideas as you reflect on the AI's responses.</p>
+<p>Let's use the previous prompt example from the chain-of-thought prompting, which asks for a worfklow to generate a land cover map, to demonstrate an iterative prompting workflow. We'll focus on iteratively refining and adding detail to the part of this workflow that involves generating the training data. This is the initial prompt:</p>
+<div class="admonition note">
+<p class="admonition-title">Prompt</p>
+<p>You are a remote sensing and machine learning specialist and consultant. Your task is to develop a land cover classification product for a regional local government organisation in Western Australia. </p>
+<p>You need to develop a land cover classification workflow that will generate a 10 m spatial resolution land cover map that includes the following classes: urban, water, grassland, scrubland, agriculture, mangrove, mudflats, open trees, forest. Please can you generate instructions and explanatory notes for the following steps:</p>
+<ol>
+<li>Generate training data that captures the geographic diversity of the land cover classes in the study area.</li>
+<li>Generate test data from a probability sample to support robust map accuracy assessment. </li>
+<li>Download Sentinel-2 images from Planetary Computer.</li>
+<li>Combine data from Sentinel-2 images with the labelled training and test data and transform the data to a format suitable for machine learning model development. </li>
+<li>Train a machine learning model to classify Sentinel-2 images into land cover maps. </li>
+<li>Evaluate the model using the test data. </li>
+<li>Generate a web map viewer for the classified land cover map land cover map. </li>
+</ol>
+<p>Include Python code for each step where relevant. </p>
+<details class="note">
+<summary>Response (Gemini 2.0 Flash)</summary>
+<p>Step-by-Step Workflow:</p>
+<p>Generate Training Data</p>
+<p>Concept: Training data is crucial for supervised learning. It should be representative of the land cover classes across the study area.</p>
+<p>Method:</p>
+<ul>
+<li>Visual Interpretation: Utilize high-resolution imagery (e.g., Google Earth, Nearmap) as a base layer.</li>
+<li>Stratified Random Sampling: Divide the study area into zones based on known land cover patterns. Generate random points within each zone.</li>
+<li>Manual Digitization: Digitize polygons around representative areas of each land cover class at the sampled points.</li>
+<li>Geodatabase: Store the digitized polygons in a GeoJSON or shapefile format, with an attribute field indicating the land cover class.</li>
+</ul>
+<p>Considerations:</p>
+<ul>
+<li>Ensure a balanced representation of each class.</li>
+<li>Capture the variability within each class (e.g., different types of urban areas, varying densities of forest).</li>
+<li>Use expert knowledge of the region to identify and delineate complex land cover types.</li>
+</ul>
+<p>Python (Example - Geopandas for creating a basic training file):</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Polygon</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># Example polygons (replace with your actual digitized polygons)</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    <span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="p">[</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>        <span class="n">Polygon</span><span class="p">([(</span><span class="mi">115</span><span class="p">,</span> <span class="o">-</span><span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="mf">115.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="mf">115.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">32.1</span><span class="p">),</span> <span class="p">(</span><span class="mi">115</span><span class="p">,</span> <span class="o">-</span><span class="mf">32.1</span><span class="p">)]),</span>  <span class="c1"># Urban</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>        <span class="n">Polygon</span><span class="p">([(</span><span class="mi">116</span><span class="p">,</span> <span class="o">-</span><span class="mi">33</span><span class="p">),</span> <span class="p">(</span><span class="mf">116.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">33</span><span class="p">),</span> <span class="p">(</span><span class="mf">116.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">33.1</span><span class="p">),</span> <span class="p">(</span><span class="mi">116</span><span class="p">,</span> <span class="o">-</span><span class="mf">33.1</span><span class="p">)]),</span>  <span class="c1"># Forest</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>        <span class="c1">#... more polygons</span>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    <span class="p">],</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>    <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;urban&#39;</span><span class="p">,</span> <span class="s1">&#39;forest&#39;</span><span class="p">]</span>  <span class="c1"># Corresponding land cover classes</span>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="p">}</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="n">gdf_train</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>  <span class="c1"># Set CRS to WGS 84</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="n">gdf_train</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;training_data.geojson&quot;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GeoJSON&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+</details>
+</div>
+<p>It's an OK templare to start with, but the code snippet and instructions are incomplete or too vague to implement and we can add more detail to the explanatory notes. Let's go back to the AI and prompt it to provide more information:</p>
+<div class="admonition note">
+<p class="admonition-title">Prompt</p>
+<p>Focusing on step 1 (generating training data) can you provide detailed instructions on how to implement stratified sampling to generate a series of points that are representative of the region? </p>
+<p>Include information on the datasets required to do this, provide a Python code example, and reflect on any limitations with this approach with respect to training a land cover classifier.</p>
+<details class="note">
+<summary>Response (Gemini 2.0 Flash)</summary>
+<p>Data Requirements</p>
+<ul>
+<li>Study Area Boundary: A polygon shapefile or GeoJSON defining the region of interest.</li>
+<li>Stratification Layers: Raster or vector datasets that capture the geographic variability within your study area. These could include:</li>
+<li>Elevation: A digital elevation model (DEM) to capture variations in terrain.</li>
+<li>Landforms: A landform classification map to differentiate between plains, hills, valleys, etc.</li>
+<li>Soil Types: A soil map to account for differences in soil properties.</li>
+<li>Vegetation Indices: Pre-calculated NDVI or other vegetation indices from existing imagery.</li>
+<li>Existing Land Cover: A coarse-resolution land cover map to broadly stratify the area.</li>
+</ul>
+<p>Stratification Process</p>
+<ul>
+<li>Combine Layers (Optional): If using multiple stratification layers, you might need to combine them into a single composite layer. This can be done using raster algebra or spatial joins, depending on the data format.</li>
+<li>Define Strata: Divide the composite layer into distinct classes or zones. The number and type of strata will depend on the complexity of your study area and the available data. For example, you could combine elevation and landform to create strata like "lowland plains," "upland hills," etc.</li>
+<li>Allocate Sample Points: Determine the desired number of sample points for each stratum. This can be done proportionally to the area of each stratum or based on prior knowledge of land cover distribution.</li>
+<li>Generate Random Points: Use a random point generator to create points within each stratum. Ensure that the points are well-distributed and avoid clustering.</li>
+</ul>
+<p>Limitations and Considerations</p>
+<ul>
+<li>Strata Definition: Defining meaningful strata can be challenging and requires careful consideration of the landscape and available data.</li>
+<li>Data Availability: The quality and availability of stratification layers can influence the effectiveness of the sampling.</li>
+<li>Sample Size: Determining the appropriate sample size per stratum is crucial and may require statistical analysis or expert knowledge.</li>
+<li>Rare Classes: Stratified sampling may not adequately capture rare or sparsely distributed land cover classes. Additional targeted sampling may be needed.</li>
+<li>Temporal Variability: If significant land cover changes occur throughout the year, consider using imagery from multiple seasons for training data collection.</li>
+<li>Accessibility: Ensure that the generated sample points are accessible for ground-truthing or high-resolution image interpretation if you plan to validate your training data with field observations.</li>
+</ul>
+<p>Refinement and Validation</p>
+<ul>
+<li>Visual Inspection: After generating the sample points, visually inspect their distribution on a map to ensure they adequately represent the different strata and land cover types.</li>
+<li>Ground-Truthing or High-Resolution Imagery: If possible, validate the land cover at the sample points using field visits or high-resolution imagery to confirm the accuracy of your training data.</li>
+</ul>
+<p>By carefully implementing stratified random sampling, you can create a more representative set of training points for your land cover classification model, leading to improved accuracy and generalization across the study area.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="kn">from</span> <span class="nn">shapely.ops</span> <span class="kn">import</span> <span class="n">cascaded_union</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="kn">import</span> <span class="nn">random</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="k">def</span> <span class="nf">stratified_random_sampling</span><span class="p">(</span><span class="n">strata_gdf</span><span class="p">,</span> <span class="n">num_points_per_stratum</span><span class="p">):</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="sd">    Generates stratified random sample points.</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="sd">    Args:</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="sd">        strata_gdf (GeoDataFrame): GeoDataFrame with strata polygons and a &#39;stratum&#39; column.</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="sd">        num_points_per_stratum (dict): Dictionary mapping stratum names to the desired number of points.</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="sd">    Returns:</span>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="sd">        GeoDataFrame: GeoDataFrame with the generated sample points.</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>    <span class="n">sample_points</span> <span class="o">=</span>
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>    <span class="k">for</span> <span class="n">stratum</span> <span class="ow">in</span> <span class="n">strata_gdf</span><span class="p">[</span><span class="s1">&#39;stratum&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>        <span class="n">stratum_polygon</span> <span class="o">=</span> <span class="n">cascaded_union</span><span class="p">(</span><span class="n">strata_gdf</span><span class="p">[</span><span class="n">strata_gdf</span><span class="p">[</span><span class="s1">&#39;stratum&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">stratum</span><span class="p">][</span><span class="s1">&#39;geometry&#39;</span><span class="p">])</span>
+</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a>        <span class="n">minx</span><span class="p">,</span> <span class="n">miny</span><span class="p">,</span> <span class="n">maxx</span><span class="p">,</span> <span class="n">maxy</span> <span class="o">=</span> <span class="n">stratum_polygon</span><span class="o">.</span><span class="n">bounds</span>
+</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>
+</span><span id="__span-20-23"><a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a>        <span class="n">num_points</span> <span class="o">=</span> <span class="n">num_points_per_stratum</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">stratum</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-20-24"><a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_points</span><span class="p">):</span>
+</span><span id="__span-20-25"><a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a>            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-20-26"><a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a>                <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">minx</span><span class="p">,</span> <span class="n">maxx</span><span class="p">)</span>
+</span><span id="__span-20-27"><a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a>                <span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">miny</span><span class="p">,</span> <span class="n">maxy</span><span class="p">)</span>
+</span><span id="__span-20-28"><a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a>                <span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span><span id="__span-20-29"><a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a>                <span class="k">if</span> <span class="n">stratum_polygon</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
+</span><span id="__span-20-30"><a id="__codelineno-20-30" name="__codelineno-20-30" href="#__codelineno-20-30"></a>                    <span class="n">sample_points</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="n">point</span><span class="p">,</span> <span class="s1">&#39;stratum&#39;</span><span class="p">:</span> <span class="n">stratum</span><span class="p">})</span>
+</span><span id="__span-20-31"><a id="__codelineno-20-31" name="__codelineno-20-31" href="#__codelineno-20-31"></a>                    <span class="k">break</span>
+</span><span id="__span-20-32"><a id="__codelineno-20-32" name="__codelineno-20-32" href="#__codelineno-20-32"></a>
+</span><span id="__span-20-33"><a id="__codelineno-20-33" name="__codelineno-20-33" href="#__codelineno-20-33"></a>    <span class="k">return</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">sample_points</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">strata_gdf</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+</span><span id="__span-20-34"><a id="__codelineno-20-34" name="__codelineno-20-34" href="#__codelineno-20-34"></a>
+</span><span id="__span-20-35"><a id="__codelineno-20-35" name="__codelineno-20-35" href="#__codelineno-20-35"></a><span class="c1"># Example usage</span>
+</span><span id="__span-20-36"><a id="__codelineno-20-36" name="__codelineno-20-36" href="#__codelineno-20-36"></a><span class="c1"># Assuming you have a GeoDataFrame &#39;strata_gdf&#39; with your strata</span>
+</span><span id="__span-20-37"><a id="__codelineno-20-37" name="__codelineno-20-37" href="#__codelineno-20-37"></a><span class="n">num_points</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lowland&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;upland&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;water&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>  <span class="c1"># Example</span>
+</span><span id="__span-20-38"><a id="__codelineno-20-38" name="__codelineno-20-38" href="#__codelineno-20-38"></a><span class="n">sample_points_gdf</span> <span class="o">=</span> <span class="n">stratified_random_sampling</span><span class="p">(</span><span class="n">strata_gdf</span><span class="p">,</span> <span class="n">num_points</span><span class="p">)</span>
+</span><span id="__span-20-39"><a id="__codelineno-20-39" name="__codelineno-20-39" href="#__codelineno-20-39"></a>
+</span><span id="__span-20-40"><a id="__codelineno-20-40" name="__codelineno-20-40" href="#__codelineno-20-40"></a><span class="c1"># Save the sample points</span>
+</span><span id="__span-20-41"><a id="__codelineno-20-41" name="__codelineno-20-41" href="#__codelineno-20-41"></a><span class="n">sample_points_gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;sample_points.geojson&quot;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;GeoJSON&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+</details>
+</div>
+<p>There is more detail on how to create strata. Some notes have been generated that raise important points to consider (e.g. what's the required sample size and how are you going to account for temporal variability in the data you are using to generate the strata).</p>
+<p>However, the response is still quite vague on the methods used to define the strata. We can go back to AI and prompt it to expand on a method to convert geospatial layers into zones that define the strata.</p>
+<div class="admonition note">
+<p class="admonition-title">Prompt</p>
+<p>Can you outline a workflow to convert geospatial layers of vegetation indices, soil type and elevation into groups that represent strata for sampling. Use the k-means algorithm to generate clusters. </p>
+<p>Generate Python code that fits the k-means algorithm, converts the geospatial layers into a layer of zones defined by the clusters, and vectorise the clusters and store them as a GeoDataFrame.</p>
+<details class="note">
+<summary>Response (Gemini 2.0 Flash)</summary>
+<p>Workflow for Stratification using K-means Clustering</p>
+<p>Data Preparation</p>
+<ul>
+<li>Load your geospatial layers (vegetation indices, soil type, elevation) into appropriate data structures (e.g., NumPy arrays for raster data, GeoDataFrames for vector data).</li>
+<li>Ensure all layers have the same spatial extent and resolution. If not, resample or clip them to a common grid.</li>
+<li>Normalize the data for each layer to a common scale (e.g., between 0 and 1) to prevent features with larger values from dominating the clustering process.</li>
+</ul>
+<p>K-means Clustering</p>
+<ul>
+<li>Choose the number of clusters (k) you want to create. This will determine the number of strata for your sampling. Consider factors like the complexity of the landscape, the diversity of land cover types, and the desired level of detail in your stratification.</li>
+<li>Apply the k-means algorithm to the combined data from your geospatial layers. The algorithm will group pixels or polygons with similar characteristics into clusters.</li>
+</ul>
+<p>Python code example (using scikit-learn):</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="c1"># Assuming you have NumPy arrays: ndvi_array, soil_array, elevation_array</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="c1"># Stack the arrays into a single feature matrix</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">([</span><span class="n">ndvi_array</span><span class="p">,</span> <span class="n">soil_array</span><span class="p">,</span> <span class="n">elevation_array</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="c1"># Normalize the data</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="c1"># Apply K-means clustering</span>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="n">k</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># Number of clusters (strata)</span>
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="c1"># Reshape the cluster labels back to the original shape</span>
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="n">cluster_array</span> <span class="o">=</span> <span class="n">clusters</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ndvi_array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Zone Creation</p>
+<ul>
+<li>Create a new raster layer or vector layer where each pixel or polygon is assigned a zone ID based on its cluster membership.</li>
+<li>Python code example (using rasterio for raster data):</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kn">import</span> <span class="nn">rasterio</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1"># Assuming you have a rasterio dataset &#39;src&#39; for your original data</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;strata_raster.tif&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">src</span><span class="o">.</span><span class="n">profile</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cluster_array</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Vectorization (Optional)</p>
+<ul>
+<li>If you prefer working with vector data, convert the raster layer of zones into a polygon shapefile or GeoJSON. This will create distinct polygons representing each stratum.</li>
+<li>Python code example (using rasterio and geopandas):</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="kn">from</span> <span class="nn">rasterio.features</span> <span class="kn">import</span> <span class="n">shapes</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="c1"># Read the raster data</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;strata_raster.tif&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">({</span><span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;zone&#39;</span><span class="p">:</span> <span class="n">v</span><span class="p">},</span> <span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="n">s</span><span class="p">}</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">shapes</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">src</span><span class="o">.</span><span class="n">transform</span><span class="p">)))</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="c1"># Create a GeoDataFrame</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="n">strata_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="o">.</span><span class="n">from_features</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">),</span> <span class="n">crs</span><span class="o">=</span><span class="n">src</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="c1"># Save the GeoDataFrame</span>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="n">strata_gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;strata_polygons.geojson&quot;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;GeoJSON&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Key Considerations</p>
+<ul>
+<li>Optimal k Value: Experiment with different values of k to find the optimal number of clusters that best capture the variability in your data. You can use techniques like the elbow method or silhouette analysis to evaluate cluster quality.</li>
+<li>Cluster Interpretation: Analyze the characteristics of the clusters (e.g., mean values of vegetation indices, soil types, elevation) to understand the environmental conditions they represent. This will help you interpret the results and refine your stratification if needed.</li>
+<li>Data Normalization: Ensure that you normalize your data appropriately to avoid bias in the clustering process.</li>
+<li>Spatial Autocorrelation: Consider the potential impact of spatial autocorrelation in your data. If neighboring pixels or polygons are highly correlated, it might influence the clustering results. You can explore spatial clustering techniques if this is a concern.</li>
+<li>Computational Resources: K-means clustering can be computationally intensive for large datasets. Consider using optimized libraries or cloud computing resources if necessary.</li>
+</ul>
+<p>This workflow provides a structured approach to generate strata for sampling using k-means clustering. Remember to adapt the code and parameters to your specific data and requirements.</p>
+</details>
+</div>
+<p>With only a handful of prompts we have a workflow in Python code that i) converts several geospatial layers into zones that can be used as strata, and ii) generates a sample of points using these zones as strata. There are also notes explaining each step and points raised for you to consider when implementing this workflow. If you scroll back to the top of this section, you will see through that we have very quickly generated more detailed and useful information to implement the training data generation component of this land cover classification workflow.   </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../example-uses/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Example uses of AI tools">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Example uses of AI tools
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../verifying-and-checking-ai-responses/" class="md-footer__link md-footer__link--next" aria-label="Next: Verifying and checking AI outputs">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Verifying and checking AI outputs
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.caa56a14.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,4 +1,4 @@
-# GEOG3300 and AGRI3003 - Semester 1 2024
+# GEOG3300 and AGRI3003 - Semester 1 2025
 
 # Welcome {.unnumbered}
 
