@@ -430,6 +430,10 @@ These are some examples of prompts and ways to use AI tools. They are designed t
 
 Using <a href="https://aistudio.google.com" target="_blank">Google AI Studio</a> you can screen share QGIS with Gemini and verbally ask questions for help with completing tasks and navigating the user interface; for example, where to find processing tools and how to configure them for GIS operations.
 
+<iframe src="https://drive.google.com/file/d/1o8mdSEH_OFbLIU8hAaltmd1Ui7qm-2Zl/preview" width="640" height="480" allow="autoplay"></iframe>
+
+*Screen share of QGIS with Google AI Studio to get instructions on a workflow to turn raster pixels into a polygon layer.*
+
 ## AI for programming and data analysis
 
 **Use LLMs for programming from writing boilerplate code, generating examples and helping solve coding problems**
@@ -2006,6 +2010,10 @@ Look at how the AI tools identify limitations and gaps with existing studies as 
 
 !!! tip "Review STORM and CO-STORM's brainSTORMING process"
     When generating Wikipedia-like articles or round table discussions STORM undertakes a "brainstorming" process where agents from different perspectives ask and answer questions on a topic, update their knowledge and generate new ideas. Looking at this trace is a good way for you to practice approaching a topic from different perspectives and also identify effective questions that you can reuse elsewhere when researching topics and undertaking literature reviews. 
+
+    <iframe src="https://drive.google.com/file/d/1XnY5QiJw50akczvn7tedEQXFkiVxLKur/preview" width="640" height="480" allow="autoplay"></iframe>
+
+    *The STORM interface and viewing the brainSTORMING process.*
 
 * Upload a paper to <a href="https://notebooklm.google.com" target="_blank">NotebookLM</a> and prompt it to generate a list of limitations and recommendations for further work. Or, ask <a href="https://storm.genie.stanford.edu" target="_blank">STORM Genie</a> to create to review the literature and create a list of limitations with the current state of the literature for a topic area or task.
 

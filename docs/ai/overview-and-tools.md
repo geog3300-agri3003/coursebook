@@ -9,8 +9,8 @@ This guide covers:
 * [Overview of AI tools](#ai-tools): an overview of AI tools for working with text, coding, images, video, audio, literature and search. 
 * [Example uses of AI tools](example-uses.md): a selection of examples using AI tools for GIS, programming, data visualisation, topic understanding, literature search and reviews and more. 
 * [Prompt engineering](prompt-engineering.md): the quality of prompt you provide to AI tools determines the quality of generated response. This guide provides an overview of best practice and techniques for generating high quality prompts. 
-* [Responsible AI](): notes and resources on responsible use of AI tools. 
-* [Verification and quality checking](): tips for checking the quality, accuracy and factuality of AI generated content. 
+* [Responsible AI](responsible-use-of-ai.md): notes and resources on responsible use of AI tools. 
+* [Verification and quality checking](verifying-and-checking-ai-responses.md): tips for checking the quality, accuracy and factuality of AI generated content. 
 
 
 This is a fast moving field, so these notes just scratch the surface and they’re almost certain to be dated when you read this. 
@@ -1223,6 +1223,10 @@ Many generative AI tools (e.g. Google’s Gemini or OpenAI’s ChatGPT) are mult
     * Screen share your desktop GIS software and ask for instructions on how to complete tasks
     * Use the web cam to practice giving oral presentations and get tips for improving your delivery from the AI 
 
+<iframe src="https://drive.google.com/file/d/1kaYEcQ229sXiDA0ph_Ov5Vs8cS4j7zkv/preview" width="640" height="480" allow="autoplay"></iframe>
+
+*Screen share of QGIS with Google AI Studio to get help with merging polygons.*
+
 ### AI literature and research tools 
 
 There are numerous AI tools for literature and search tasks that take advantage of LLM’s long context windows, file upload features or are dedicated AI research and literature apps. 
@@ -1296,6 +1300,10 @@ Apps built on top of generative AI models can be used to:
     * The act of asking questions allows you to actively engage with a topic, update your understanding of key concepts and develop new ideas.
     * CO-STORM can generate a mind-map of the discussion, comprising relationships between concepts, to give you a structure for thinking critically about a topic to guide further reading. 
     * CO-STORM can convert the mind-map of concepts, and associated information, generated through discussion into a report.  
+
+    <iframe src="https://drive.google.com/file/d/1SYIzT42tlWDHgygNYPs0t491xba1t3g5/preview" width="640" height="480" allow="autoplay"></iframe>
+
+    *The CO-STORM interface and interacting with a discussion.*
 
 #### Useful resources:
 

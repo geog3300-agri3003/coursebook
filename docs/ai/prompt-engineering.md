@@ -904,8 +904,8 @@ While it's not about agricultural or geospatial data, this is a great <a href="h
 * **Video streaming and conversations**: With <a href="https://aistudio.google.com" target="_blank">Google’s AI studio</a> you can screenshare a paper you're reading, your coding environment or desktop GIS and have a verbal conversation about what's on your screen. For example, you could ask the AI to help explain a figure in a paper or report on your screen or help you navigate around QGIS to find operations. 
 * **Presentation feedback**: Share your web cam with <a href="https://aistudio.google.com" target="_blank">Google’s AI studio</a> and practice a presentation and get feedback on ways to improve delivery. 
 
-!!! note "Prompt"
-    The uploaded image is a map of a land cover classification generated for a region in Western Australia from Sentinel-2 images processed by a machine learning model. Can you describe the land cover map? Can you make a series of suggestion for how the map can be improved? 
+<!-- !!! note "Prompt"
+    The uploaded image is a map of a land cover classification generated for a region in Western Australia from Sentinel-2 images processed by a machine learning model. Can you describe the land cover map? Can you make a series of suggestion for how the map can be improved?  -->
 
 
 ## Iterative prompting

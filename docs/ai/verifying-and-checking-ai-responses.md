@@ -20,6 +20,9 @@ As discussed in the notes on [AI tools](overview-and-tools.md#search), many LLMs
 
 Google's Gemini app gives you a *Double-check response* option (found by clicking the three vertical dots at the bottom of the response). This will run a Google search and highlight your response in green, orange or red depending on whether supporting content was found online. <a href="https://chatgpt.com" target="_blank">ChatGPT</a> and <a href="https://www.perplexity.ai" target="_blank">Perplexity</a> also both integrate search with LLM prompts and providing grounding and links to help you check the response.
 
+<img src="https://github.com/geog3300-agri3003/coursebook/raw/main/docs/img/gemini-double-check-with-google.png" alt="HF account" width="100%">
+
+
 ### Grounding
 
 Integrating LLM response generation with search is one form of <a href="https://techcommunity.microsoft.com/blog/fasttrackforazureblog/grounding-llms/3843857" target="_blank">grounding</a>. LLMs are general reasoning, problem solving and text generation tools. While these models will have picked up information during their training, <a href="https://techcommunity.microsoft.com/blog/fasttrackforazureblog/grounding-llms/3843857" target="_blank">they are not databases, have not been optimised for your specific task and may not have access to information relevant to the task (e.g. private or more recent data)</a>. 
