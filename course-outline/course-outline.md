@@ -40,6 +40,8 @@ It will demonstrate these concepts by:
 
 These labs introduce data visualisation concepts, selecting different figures to explore a dataset's structure and relationships between variables, using colour to highlight features and patterns, and generating maps from spatial data. You will be working with crop yield data sampled by a header on a harvester from a field in the Western Australia and satellite images from the same field. 
 
+**You do not need a GPU instance in Google Colab for these labs.**
+
 1) introduction to data visualisation and creating interactive figures.
 
 <a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-2_1.ipynb" target="_blank">
@@ -61,6 +63,8 @@ These labs introduce data visualisation concepts, selecting different figures to
 ## Week 3 
 
 These labs will provide an introduction to file formats for tabular, vector, and raster data; best practice for reading and writing spatial and non-spatial data in Python programs; navigating directories and file systems; and, identifying suitable file formats for different tasks, use cases, contexts (e.g. big data / web environments). You will be working with a range of datasets including satellite images, climate reanalysis products, and crop yield data collected by a harvester from a field in Western Australia.
+
+**You do not need a GPU instance in Google Colab for these labs.**
 
 1) data I/O and file formats.
 
@@ -84,6 +88,8 @@ These labs will provide an introduction to file formats for tabular, vector, and
 
 These labs focus on data wrangling and data transformation. You will implement a range of data transformation and geoprocessing operations including map algebra, spatial and non-spatial data subsetting, zonal statistics, and combining datasets. One lab will focus on raster data and build a data processing workflow to convert satellite images into flood maps following a tropical cyclone event in Fiji. The second lab will turn a satellite image into a vector-tabular dataset of field boundaries with a crop type label and field-average spectral reflectance values. This demonstrates how we can process satellite images into a format ready for machine learning model development. 
 
+**You do not need a GPU instance in Google Colab for these labs.**
+
 1) data wrangling: raster data.
 
 <a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-4_1.ipynb" target="_blank">
@@ -104,7 +110,9 @@ These labs focus on data wrangling and data transformation. You will implement a
 
 ## Week 5
 
-An introduction to machine learning concepts and workflows, how to implement a machine learning workflow in Python, and considerations for machine learning with spatial data. You will implement two machine learning tasks. First, you will use the AgriFieldNet Competition Dataset&nbsp;<a target="_blank" href="https://mlhub.earth/data/ref_agrifieldnet_competition_v1" rel="noopener">(Radiant Earth Foundation and IDinsight, 2022)</a>&nbsp;dataset to develop a crop type classifier for fields in India using Sentinel-2 remote sensing data. Second, you will develop a model to predict maize crop yields in Uganda with Sentinel-2 remote sensing data using the replication data from&nbsp;<a target="_blank" href="https://web.stanford.edu/~mburke/papers/lobell_et_al_AJAE_2019.pdf" rel="noopener">Lobell et al.&nbsp;(2019)</a>
+An introduction to machine learning concepts and workflows, how to implement a machine learning workflow in Python, and considerations for machine learning with spatial data. You will implement two machine learning tasks. First, you will use the AgriFieldNet Competition Dataset&nbsp;<a target="_blank" href="https://mlhub.earth/data/ref_agrifieldnet_competition_v1" rel="noopener">(Radiant Earth Foundation and IDinsight, 2022)</a>&nbsp;dataset to develop a crop type classifier for fields in India using Sentinel-2 remote sensing data. Second, you will develop a model to predict maize crop yields in Uganda with Sentinel-2 remote sensing data using the replication data from&nbsp;<a target="_blank" href="https://web.stanford.edu/~mburke/papers/lobell_et_al_AJAE_2019.pdf" rel="noopener">Lobell et al.&nbsp;(2019)</a>.
+
+**You do not need a GPU instance in Google Colab for these labs.**
 
 1) crop type classification
 
@@ -117,6 +125,8 @@ An introduction to machine learning concepts and workflows, how to implement a m
 ## Week 6
 
 An introduction to computer-to-computer communication, client-server architectures, HTTP requests / responses, and web APIs. You will learn how to use Python to make requests to web APIs, use web APIs to download data into their programs, and scrape data from websites. You apply these skills to make a weather data application for a field in Western Australia that sources data from an open weather web API. You will also learn how to use the SpatioTemporal Asset Catalog (STAC) specification and STAC APIs to define and automate searches for geospatial data that meets certain query conditions from various cloud providers.
+
+**You do not need a GPU instance in Google Colab for these labs.**
 
 1) web APIs, client-server architectures, and cloud computing
 
