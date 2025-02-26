@@ -1368,6 +1368,7 @@ Apps built on top of generative AI models can be used to:
 - <a href="https://aistudio.google.com" target="_blank">Google AI Studio</a>: Screen share and chat with a LLM as you read a paper 
 - <a href="https://www.researchrabbit.ai" target="_blank">Research Rabbit</a>: An AI academic literature search tool that finds connections between papers 
 - <a href="https://www.semanticscholar.org" target="_blank">Semantic Scholar</a>: An AI tool for academic literature search, paper summarising and question and answering 
+- <a href="https://elicit.com" target="_blank">Elicit</a>: An AI tool for comparing papers and conducting systematic reviews
 
 !!! tip "Diverse perspectives and active literature engagement with STORM and CO-STORM"
     STORM focuses on exploring topics from diverse perspectives, capturing different opinions on a topic and lets you discover new ideas and trails-of-thought that you would not have encountered following your own search and question-answering. STORM app authors describe this as helping users discover unknown-unknowns.
