@@ -1218,7 +1218,7 @@ Many generative AI tools (e.g. Google’s Gemini or OpenAI’s ChatGPT) are mult
 
     This figure of a flood extent on Vanua Levu, Fiji, following Tropical Cyclone Yasa was uploaded to Gemini to get suggestions for how to convert it to a publication quality map and instructions for doing this in QGIS. 
 
-    <img src="https://github.com/geog3300-agri3003/coursebook/raw/main/docs/img/vanua-levu-flood-map-s1.png" alt="Fiji flood map" width="100%">
+    <img src="https://github.com/geog3300-agri3003/coursebook/raw/main/docs/img/vanua-levu-flood-map-s1.jpg" alt="Fiji flood map" width="100%">
 
     !!! note "Prompt"
         This is an image of flooding after Tropical Cyclone Yasa struck Vanua Levu in Fiji. The blue flood layer is computed from Sentinel-1 SAR images. I'd like to present this information as a publication quality map. Can you make suggestions for how to enhance this image so it is of publication quality?
