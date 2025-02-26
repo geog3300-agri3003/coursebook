@@ -162,7 +162,7 @@ The prompt and response below illustrate the benefits of integrating LLMs with s
         Answer from Perplexity: pplx.ai/share
 
     !!! tip "LLM respones are probabilistic - always check them"
-        The first rule of working with LLMs is to check their responses. LLMs are a tool to help you be more efficient, an assistant to help you problem solve and aid to bounce ideas off and clarify your thinking. *They are not good at doing your job for you. They are not guaranteed to generate correct and useful answers. They are good at helping you become better at doing your job.* 
+        The first rule of working with LLMs is to check their responses. LLMs are a tool to help you be more efficient, an assistant to help you problem solve and an aid to bounce ideas off and clarify your thinking. *They are not good at doing your job for you. They are not guaranteed to generate correct and useful answers. They are good at helping you become better at doing your job.* 
 
         LLMs generate their responses probabilistically, you may get different responses to the same prompt. These responses will vary in quality, relevance and sometimes with the contextual information you've already provided in your chat session. 
         
@@ -1096,7 +1096,7 @@ These models are well suited to larger and more complex reasoning problems; "thi
     ??? note "Response (ChatGPT Reason)"
         Radiometric calibration is a crucial step in converting raw digital numbers (DN) from UAV multispectral images into actual surface reflectance values. This conversion is essential for accurately estimating crop biophysical parameters like leaf area index (LAI) and chlorophyll content. Below is a review of several radiometric calibration methods and an assessment of their suitability for high-quality multispectral imaging in precision agriculture:
 
-        1. Empirical Line Calibration (ELC)
+        **Empirical Line Calibration (ELC)**
         
         Overview:
 
@@ -1117,7 +1117,7 @@ These models are well suited to larger and more complex reasoning problems; "thi
 
         * Highly suitable for crop biophysical parameter estimation when the necessary calibration targets are available and measured accurately. Its direct correlation with ground truth makes it a preferred method in many precision agriculture applications.
         
-        2. Reflectance Panel Calibration
+        **Reflectance Panel Calibration**
         
         Overview:
 
@@ -1138,7 +1138,7 @@ These models are well suited to larger and more complex reasoning problems; "thi
 
         Very suitable for UAV-based agricultural imaging, especially when precise calibration is needed. This method is widely used in research and commercial applications where accurate reflectance is critical.
         
-        3. Sensor-Based (Factory or Onboard) Calibration
+        **Sensor-Based (Factory or Onboard) Calibration**
         
         Overview:
 
@@ -1159,7 +1159,7 @@ These models are well suited to larger and more complex reasoning problems; "thi
 
         * Suitable for routine monitoring where small errors in reflectance are acceptable, but for high-precision estimation of crop biophysical parameters, this method might be less ideal unless validated with periodic ground measurements.
         
-        4. Vicarious Calibration
+        **Vicarious Calibration**
         
         Overview:
 
@@ -1180,7 +1180,7 @@ These models are well suited to larger and more complex reasoning problems; "thi
 
         * Generally less preferred for high-precision crop biophysical parameter estimation unless no other calibration method is feasible. It may serve as a backup when field calibration targets are unavailable.
         
-        5. Integrated Calibration Approaches
+        **Integrated Calibration Approaches**
         
         Overview:
 
@@ -1216,6 +1216,90 @@ Many generative AI tools (e.g. Google’s Gemini or OpenAI’s ChatGPT) are mult
 !!! tip "Get feedback on maps and graphs"
     You can upload an image to a multi-modal model and ask it to summarise the image or provide feedback on how to improve it. Use this feature to get ideas to improve the quality of your figures or maps. 
 
+    This figure of a flood extent on Vanua Levu, Fiji, following Tropical Cyclone Yasa was uploaded to Gemini to get suggestions for how to convert it to a publication quality map and instructions for doing this in QGIS. 
+
+    <img src="https://github.com/geog3300-agri3003/coursebook/raw/main/docs/img/vanua-levu-flood-map-s1.jpg" alt="Fiji flood map" width="100%">
+
+    !!! note "Prompt"
+        This is an image of flooding after Tropical Cyclone Yasa struck Vanua Levu in Fiji. The blue flood layer is computed from Sentinel-1 SAR images. I'd like to present this information as a publication quality map. Can you make suggestions for how to enhance this image so it is of publication quality?
+
+        The flood layer is stored as a GeoTIFF file. Can you provide detailed instructions for how to use QGIS to visualise it as a publication quality figure.
+
+        ??? note "Response (Gemini 2.0 Flash)"
+            Absolutely! Let's transform this informative image into a publication-quality map using QGIS.
+
+            **Enhancement Suggestions for Publication Quality**
+
+            * Clear and Informative Title: Instead of just "Flooding after Tropical Cyclone Yasa," use a more descriptive title like "Extent of Flooding in [Specific Region] Vanua Levu, Fiji, Following Tropical Cyclone Yasa." Include the date of the cyclone for context.
+            * Legend: A legend is crucial. It should clearly explain the meaning of the blue layer (e.g., "Flooded Areas"). Consider adding other relevant features to the legend, like settlements, rivers, etc., if they are included.
+            * Scale Bar and North Arrow: Essential for spatial context.
+            * Coordinate Grid/Graticule: Adds geographic reference.
+            * Data Source Information: Include details about the Sentinel-1 SAR imagery (date acquired, sensor type, etc.) and the source of the flood layer.
+            * Inset Map (Optional): Show the location of Vanua Levu within Fiji or the wider Pacific region.
+            * Consistent Styling: Use consistent fonts, colors, and line weights throughout the map.
+            * High Resolution Output: Export the map at a high DPI (dots per inch) for print publications.
+            * Minimalist Design: Avoid clutter. Focus on conveying the essential information clearly.
+
+            **Detailed QGIS Instructions**
+
+            Import Data:
+
+            * Open QGIS: Launch QGIS Desktop.
+            * Add Raster Layer: Go to Layer > Add Layer > Add Raster Layer. Browse to your GeoTIFF file and open it.
+            * Add Basemap (Optional but Recommended): Use the QuickMapServices plugin (Plugins > Manage and Install Plugins) to add a base map like Google Satellite or OpenStreetMap. This provides geographic context.
+            
+            Style the Flood Layer:
+
+            * Double-click the Flood Layer: This opens the Layer Properties.
+            * Symbology Tab:
+                * Render Type: Ensure it's set to "Singleband pseudocolor" or "Paletted/Unique values" depending on your data.
+                * Color Ramp: Choose a suitable color ramp for the blue flood layer. A simple blue gradient is often effective.
+                * Opacity: Adjust the opacity if needed to see the underlying basemap.
+                * Transparency Tab: If necessary, set a No Data value to make areas without flood data transparent.
+            
+            Create the Map Layout:
+
+            * New Print Layout: Go to Project > New Print Layout. Give it a name.
+            * Add Map: Click "Add Item" > "Add Map." Draw a rectangle where you want the map to appear.
+            * Adjust Map Extent: Use the "Move item content" tool (under "Item Properties" when the map is selected) to pan and zoom the map to the desired area.
+            * Add Scale Bar: Click "Add Item" > "Add Scale Bar." Place it on the map. Adjust the units and style in the "Item Properties."
+            * Add North Arrow: Click "Add Item" > "Add North Arrow." Choose a style and place it on the map.
+            * Add Grid/Graticule:
+                * Select the map in the layout.
+                * In "Item Properties," go to "Grids."
+                * Click the "+" button to add a grid.
+                * Adjust the grid interval, style, and frame options.
+            * Add Legend: Click "Add Item" > "Add Legend." Place it on the map.
+            * Uncheck "Auto update" to manually edit the legend items.
+            * Remove unnecessary items and rename the flood layer item to "Flooded Areas" or a more descriptive name.
+            * Add Title: Click "Add Item" > "Add Label." Type your title and adjust the font, size, and style in "Item Properties."
+            * Add Data Source Information: Add another label for the data source details.
+            
+            Add Inset Map (Optional):
+
+            * Add Another Map Item: Add a smaller map item to the layout.
+            * Zoom to Fiji or the Pacific Region: Change the extent of this map to show the wider location.
+            * Add a Rectangle to Indicate the Main Map Area: Use "Add Item" > "Add Shape" > "Add Rectangle" to draw a rectangle on the inset map showing the area covered by the main map.
+            
+            Style and Refine:
+
+            * Font and Color Consistency: Ensure all text elements have consistent fonts and colors.
+            * Line Weights: Adjust line weights for clarity.
+            * Layout Alignment: Use the alignment tools in the layout to ensure elements are neatly arranged.
+            
+            Export the Map:
+
+            * Export as Image or PDF: Go to Layout > Export as Image or Layout > Export as PDF.
+            * Set DPI: For print publications, set the DPI (resolution) to 300 or higher.
+            
+            Additional Tips:
+
+            * Use Plugins: Explore QGIS plugins for additional cartographic tools and features.
+            * Reference Maps: Look at published maps from reputable sources for inspiration and best practices.
+            * Iterate: Don't be afraid to experiment with different styles and layouts until you achieve the desired result.
+            
+            By following these steps, you can create a clear, informative, and publication-quality map that effectively communicates the extent of flooding in Vanua Levu after Tropical Cyclone Yasa. Remember to tailor the map to the specific requirements of your publication. Good luck!
+
 <a href="https://aistudio.google.com" target="_blank">Google’s AI studio</a> (which is free to use at the time of writing) lets you interact with Gemini models via text, image, audio and video formats. You can stream video with Gemini via screen sharing or web cams and have a verbal conversation with the model about what it can see. 
 
 !!! tip "Screen share and chat with AI"
@@ -1223,9 +1307,9 @@ Many generative AI tools (e.g. Google’s Gemini or OpenAI’s ChatGPT) are mult
     * Screen share your desktop GIS software and ask for instructions on how to complete tasks
     * Use the web cam to practice giving oral presentations and get tips for improving your delivery from the AI 
 
-<iframe src="https://drive.google.com/file/d/1kaYEcQ229sXiDA0ph_Ov5Vs8cS4j7zkv/preview" width="640" height="480" allow="autoplay"></iframe>
+<iframe src="https://drive.google.com/file/d/1o8mdSEH_OFbLIU8hAaltmd1Ui7qm-2Zl/preview" width="640" height="480" allow="autoplay"></iframe>
 
-*Screen share of QGIS with Google AI Studio to get help with merging polygons.*
+*Screen share of QGIS with Google AI Studio to get instructions on a workflow to turn raster pixels into a polygon layer.*
 
 ### AI literature and research tools 
 
