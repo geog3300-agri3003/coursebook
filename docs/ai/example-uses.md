@@ -430,9 +430,9 @@ These are some examples of prompts and ways to use AI tools. They are designed t
 
 Using <a href="https://aistudio.google.com" target="_blank">Google AI Studio</a> you can screen share QGIS with Gemini and verbally ask questions for help with completing tasks and navigating the user interface; for example, where to find processing tools and how to configure them for GIS operations.
 
-<iframe src="https://drive.google.com/file/d/1o8mdSEH_OFbLIU8hAaltmd1Ui7qm-2Zl/preview" width="640" height="480" allow="autoplay"></iframe>
+<iframe src="https://drive.google.com/file/d/1kaYEcQ229sXiDA0ph_Ov5Vs8cS4j7zkv/preview" width="640" height="480" allow="autoplay"></iframe>
 
-*Screen share of QGIS with Google AI Studio to get instructions on a workflow to turn raster pixels into a polygon layer.*
+*Screen share of QGIS with Google AI Studio to get help with merging polygons.*
 
 ## AI for programming and data analysis
 
