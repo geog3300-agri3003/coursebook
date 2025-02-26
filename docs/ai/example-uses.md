@@ -209,9 +209,9 @@ These are some examples of prompts and ways to use AI tools. They are designed t
     What GIS operations do I need to perform to select all the yield monitor points within the field and to extract the monthly NDVI time-series at each point.
 
     !!! tip "Help the model generate more accurate and relevant responses"
-        The more detail you provide the LLM in your prompt about the task, the more closely the LLM will engage with the specifics of your task and generate a more relevant and useful response. 
+        The more detail you provide the LLM in your prompt, the more closely the LLM will engage with the specifics of your task and generate a more relevant and useful response. 
         
-        The prompt above is a good start describing the formats of the input data. However, it could be improved by specifying what output format you'd like (e.g. structure of a table, visualisations or file format to save the data). You could also ask the model to provide a step by step explantion to ensure it considers each step in the workflow in-turn.
+        The prompt above is a good start as it describes the formats of the input data. However, it could be improved by specifying what output format you'd like (e.g. structure of a table, visualisations or file format to save the data). You could also ask the model to provide a step by step explantion to ensure it considers each step in the workflow in-turn.
 
     ??? note "Response (Gemini 2.0 Flash)"
         Load Data

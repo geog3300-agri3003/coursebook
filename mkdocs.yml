@@ -67,6 +67,7 @@ nav:
       - ai/verifying-and-checking-ai-responses.md
       - ai/responsible-use-of-ai.md
       - ai/hugging-face-and-colab-setup.md
+      - LLM activity creating an AI agricultural assistant: notebooks/week-1_1.ipynb
   - Notebooks:
       - notebooks/week-1_0_llms.ipynb
       - notebooks/week-1_1.ipynb
