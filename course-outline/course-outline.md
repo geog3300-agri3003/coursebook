@@ -60,6 +60,21 @@ These labs introduce data visualisation concepts, selecting different figures to
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
+4) practice exercises reading GeoTIFF files storing Sentinel-2 images captured near York, Western Australia in a mix of cloudy and clear sky conditions. Create a new Google Colab notebook and exectute the following code snippet to read the files. 
+
+```{python}
+import os
+import subprocess
+
+if "data_lab-2_geotiffs_practice" not in os.listdir(os.getcwd()):
+    subprocess.run('wget "https://github.com/geog3300-agri3003/lab-data/raw/main/data_lab-2_geotiffs_practice.zip"', shell=True, capture_output=True, text=True)
+    subprocess.run('unzip "data_lab-2_geotiffs_practice.zip"', shell=True, capture_output=True, text=True)
+    if "data_lab-2_geotiffs_practice" not in os.listdir(os.getcwd()):
+        print("Has a directory called data_lab-2_geotiffs_practice been downloaded and placed in your working directory? If not, try re-executing this code chunk")
+    else:
+        print("Data download OK")
+```
+
 ## Week 3 
 
 These labs will provide an introduction to file formats for tabular, vector, and raster data; best practice for reading and writing spatial and non-spatial data in Python programs; navigating directories and file systems; and, identifying suitable file formats for different tasks, use cases, contexts (e.g. big data / web environments). You will be working with a range of datasets including satellite images, climate reanalysis products, and crop yield data collected by a harvester from a field in Western Australia.
@@ -83,6 +98,13 @@ These labs will provide an introduction to file formats for tabular, vector, and
 <a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-3_practice.ipynb" target="_blank">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
+
+4) demonstration of partial reads from cloud native geospatial file formats.
+
+<a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-3_cloud_native_geospatial.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 
 ## Week 4
 
