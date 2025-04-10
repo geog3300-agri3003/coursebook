@@ -158,7 +158,7 @@ An introduction to computer-to-computer communication, client-server architectur
 
 <a href="https://colab.research.google.com/github/geog3300-agri3003/coursebook/blob/main/docs/notebooks/week-6_2.ipynb" target="_blank" rel="noopener"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /> </a>
 
-## Week 7 
+## Week 7
 
 An introduction to web mapping technologies, highlighting their strengths and limitations for particular contexts, and providing some recipes for requesting web map data using Python.
 
