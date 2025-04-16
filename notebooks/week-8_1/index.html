@@ -1917,7 +1917,7 @@ if "data_lab-7" not in os.listdir(os.getcwd()):
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="background">Background<a class="anchor-link" href="#background">¶</a></h2><p>A background to UAV remote sensing will be provided as a short lecture, along with a <em>show and tell</em> of the platforms and cameras used by researchers within the Centre for Water and Spatial Science (CWSS). Then, we'll work through this notebook to demonstrate analysis techniques for working with UAV data.</p>
+<h2 id="background">Background<a class="anchor-link" href="#background">¶</a></h2><p>This notebook to demonstrate analysis techniques for working with UAV data.</p>
 <p>The lecture will provide a high-level overview of:</p>
 <ol>
 <li><p><strong>Remote sensing- When are UAVs the right tool for the job?</strong></p>
@@ -1930,12 +1930,6 @@ if "data_lab-7" not in os.listdir(os.getcwd()):
 <li><p><strong>UAV safety and regulations</strong></p>
 <ul>
 <li>See Civil Aviation Safety Authority (CASA) - <a href="https://www.casa.gov.au/knowyourdrone/drone-rules" target="_blank">Drone rules</a>.<p></p>
-</li>
-</ul>
-</li>
-<li><p><strong>Overview of Types of UAVs and Sensor</strong></p>
-<ul>
-<li>Interactive show and tell of platforms and cameras used by researchers within the Centre for Water and Spatial Science.<p></p>
 </li>
 </ul>
 </li>
@@ -1962,14 +1956,14 @@ if "data_lab-7" not in os.listdir(os.getcwd()):
 <li><p><em><strong>Geometric Calibration</strong></em></p>
 <ul>
 <li><em><strong>Inertial Measurement Unit (IMU)</strong></em>: IMU measures force, angular velocity, and attitude (accelerometer, barometer, gyroscope, and thermometer). The IMU keeps the UAV flying straight on the path outlined in your mission planning.</li>
-<li><em><strong>Ground Control Points (GCP)</strong></em>: GCPs are known locations in the imagery that are surveyed accurately and used to georeference the imagery. Identifiable objects are spaced across the flight area and surveyed with an RTK GPS. Some GCPs are commonly left out of image processing and used as checkpoints to verify the accuracy of the final orthophoto.</li>
+<li><em><strong>Ground Control Points (GCP)</strong></em>: GCPs are known locations in the imagery that are surveyed accurately and used to georeference the imagery. Identifiable objects are spaced across the flight area and surveyed with an RTK GPS. Some GCPs are left out of image processing and used as checkpoints to verify the accuracy of the final orthophoto.</li>
 <li><em><strong>Real-Time Kinematic (RTK) Drones</strong></em>: RTK drone survey use real-time correction with location data from a GPS while the drone is capturing imagery. As these platforms reduce in price and depending on the accuracy required from the final product, it may remove the need for a lot of GCPs.</li>
 </ul>
 </li>
 <li><p><em><strong>Radiometric Calibration</strong></em></p>
 <ul>
 <li>Multispectral imaging sensors do not directly measure reflectance. Instead, they measure at-sensor radiance, the radiant flux received by the sensor. Each image is a matrix of digital numbers relative to flight conditions. Radiometric calibration is required to convert raw digital numbers recorded by the camera into surface reflectance</li>
-<li><em><strong>Calibration Panels</strong></em>: Panels that are measured with a spectrometer capture their reflectance values- and are placed within the flight area. Panels are commonly made from masonite board with a rough surface (Lambertian reflectance) and painted in scale from white to black (contrasting albedo). It is common for science grade data to use at least four pannels.</li>
+<li><em><strong>Calibration Panels</strong></em>: Panels that are measured with a spectrometer capture their reflectance values and are placed within the flight area. Panels are commonly made from masonite board with a rough surface (Lambertian reflectance) and painted in scale from white to black (contrasting albedo). It is common for science grade data to use at least four pannels.</li>
 <li><em><strong>Incident light sensor</strong></em>: This sensor can also be called the Downwelling Light Sensor (DLS). It can be mounted on top of a multispectral camera to record lighting conditions throughout the flight and writes this data to each image's metadata. This data can be used to improve the accuracy of calibration.</li>
 <li><em><strong>Empirical Line Calibration</strong></em>: The empirical line method is widely used to calibrate remotely sensed images to surface reflectance. Reference targets (calibration panels) of known reflectance are placed in the image scene. The raw digital number for each panel is extracted from the image during preprocessing. Linear regression is applied between the panel's known surface reflectance and the digital number to build a calibration equation for each sensor band. The calibration equation is applied to each image band to get surface reflectance values. Note-this method assumes a linear relationship between surface reflectance and at-sensor radiance which may not always be the case.<p></p>
 </li>
@@ -1981,7 +1975,7 @@ if "data_lab-7" not in os.listdir(os.getcwd()):
 <p><img alt="" src="https://cdnsciencepub.com/cms/10.1139/juvs-2018-0018/asset/images/large/juvs-2018-0018f1.jpeg"/></p>
 <p>Source: <a href="https://doi.org/10.1139/juvs-2018-0018" target="_blank">Vegetation monitoring using multispectral sensors — best practices and lessons learned from high latitudes - Assmann et al. (2018)</a></p>
 <p></p>
-<ol start="6">
+<ol start="5">
 <li><strong>Capturing the Images</strong><ul>
 <li>On the day you are flying, you should. Check the weather to ensure it is within UAV limitations and won't adversely impact your data. If the light condition changes a lot across flights (i.e. clouds), rescheduling may be better. It is much easier to get good data than to try and correct for variance across the flight.</li>
 </ul>
@@ -2003,9 +1997,9 @@ Weather changes, sun angle. Calibration is essential to compare changes in spect
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="simple-radiometric-correction-of-swan-valley-imagery">Simple radiometric correction of Swan Valley imagery<a class="anchor-link" href="#simple-radiometric-correction-of-swan-valley-imagery">¶</a></h2><p>You will use the skills you learnt across weeks 1-6 (working with GeoTIFF files, raster geoprocessing operations, band stacking, navigating directories and file systems with imagery stored different folders etc.).</p>
+<h2 id="simple-radiometric-correction-of-swan-valley-imagery">Simple radiometric correction of Swan Valley imagery<a class="anchor-link" href="#simple-radiometric-correction-of-swan-valley-imagery">¶</a></h2><p>You will use the skills you learnt across weeks 1-6 (working with GeoTIFF files, raster geoprocessing operations, band stacking, navigating directories and file systems with imagery stored different folders).</p>
 <p>Our post-processing will focus on the radiometric calibration of UAV imagery. This allows us to produce comparable images and vegetation indices across flights and days. Radiometric calibration is the process of converting digital numbers captured by the camera sensor to physical units such as surface reflectance (the ratio of incoming solar radiation to reflected light across different spectral wavebands).</p>
-<p><strong>Why do want to convert our image data to spectral reflectance values?</strong></p>
+<p><strong>Why convert our image data to spectral reflectance values?</strong></p>
 <p><strong>The key objective for this week is to show the importance of calibration when working with UAV imagery</strong>. The satellite data we have worked with so far across weeks 1-6 has already had radiometric, spectral and geometric calibration applied by the data providers. For example, you can view the <a href="https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-2-msi/document-library" target="_blank">Sentinel data quality report</a>.</p>
 <p>This notebook is focused on simple radiometric calibration of 5-band multispectral imagery. The imagery you will be using was collected over the Swan Valley a by MicaSense RedEdge-MX camera mounted on a DJI Phantom 4. For this lab, the imagery has been clipped to a small subsection containing some grapevines and the calibration panels to speed up processing.</p>
 <p>Imagery bands:</p>
@@ -2864,7 +2858,6 @@ px.imshow(np.moveaxis(rgb, 0, 2), contrast_rescaling="minmax", height=550)</div>
 <li>red edge</li>
 <li>near infrared</li>
 </ol>
-<p>You can see examples of computing the NDVI from NumPy <code>ndarray</code>s in <em>lab-4.ipynb</em>.</p>
 </div>
 </div>
 </div>
