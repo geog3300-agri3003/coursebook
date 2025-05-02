@@ -2952,7 +2952,7 @@ $$</p>
 <span class="sd">    Calculate the N concentration from the NDRE based on Marang et al., (2021).</span>
 <span class="sd">    """</span>
     <span class="n">ndre</span> <span class="o">=</span> <span class="n">normalised_difference</span><span class="p">(</span><span class="n">da</span><span class="p">,</span> <span class="mi">790</span><span class="p">,</span> <span class="mi">720</span><span class="p">)</span>
-    <span class="n">n_conc</span> <span class="o">=</span> <span class="p">(</span><span class="mf">12.856</span> <span class="o">*</span> <span class="n">ccci</span><span class="p">)</span> <span class="o">-</span> <span class="mf">2.935</span>
+    <span class="n">n_conc</span> <span class="o">=</span> <span class="p">(</span><span class="mf">12.856</span> <span class="o">*</span> <span class="n">ndre</span><span class="p">)</span> <span class="o">-</span> <span class="mf">2.935</span>
 
     <span class="c1"># plot N predictions and VI</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -2973,7 +2973,7 @@ $$</p>
 
     <span class="k">return</span> <span class="n">n_conc</span><span class="p">,</span> <span class="n">ndre</span>
 
-    <span class="n">n_conc</span><span class="p">,</span> <span class="n">ndre</span> <span class="o">=</span> <span class="n">marang_n_conc_ndre</span><span class="p">(</span><span class="n">vnir_da_sg_veg</span><span class="p">)</span>
+<span class="n">n_conc</span><span class="p">,</span> <span class="n">ndre</span> <span class="o">=</span> <span class="n">marang_n_conc_ndre</span><span class="p">(</span><span class="n">vnir_da_sg_veg</span><span class="p">)</span>
 </pre></div>
 </details>
 <br/>
