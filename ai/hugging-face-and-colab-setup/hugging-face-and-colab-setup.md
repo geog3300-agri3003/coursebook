@@ -40,9 +40,15 @@ You can initially set token permissions to *Read*, which has read access to all 
 
 However, as you start developing resources such as models and datasets and using Hugging Face in different environments, it's a good idea to create access tokens with fine-grained permissions with just enough permissions to complete tasks associated with the token.
 
+!!! info "Set the correct permissions"
+    You should check the box *Read access to contents of all public gated repos you can access* to work with the Gemma models in these examples.
+
 <img src="https://github.com/geog3300-agri3003/coursebook/raw/main/docs/img/hf-4-annotated.png" alt="HF account" width="100%">
 
 If you have selected fine-grained permissions, you will need to add repositories (models) that you want that token to grant permission to.
+
+!!! info "Set the correct permissions"
+    You should check the boxes *Read access to contents of selected repos* and *View access to contensts of selected repos*.
 
 <img src="https://github.com/geog3300-agri3003/coursebook/raw/main/docs/img/hf-5-annotated.png" alt="HF account" width="100%">
 
